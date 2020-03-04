@@ -1,1 +1,1 @@
-# algorithms-and-data-structures
+# **py**thon **a**lgorithms and **d**ata **s**tructures
