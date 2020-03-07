@@ -1,9 +1,8 @@
 """
 """
 # =============================================================================
-class Node:    
-    def __init__(self, data, **pointers):
-        """Data structure node which be used in applications such as linked
+class Node:   
+    """Data structure node which be used in applications such as linked
         list, trees etc.
         
         Parameters
@@ -20,6 +19,8 @@ class Node:
         n1 = Node(data = 10)
         n2 = Node(data = 5, left = n1)
         """
+         
+    def __init__(self, data, **pointers):
         self.data = data
         
         for k, v in pointers.items():
