@@ -1,14 +1,37 @@
-
+from .._node import Node
 
 class LinkedList:
-    def __init__(self, **pointers):
+    def __init__(self, *values):
         self.head = None
+        
+        for v in values:
+            self.append(v)
+            
+    def _get_values(self):
+        curr = self.head
+        
+        while curr:
+            yield str(curr.data)
+            curr = curr.next
     
-    def append(self):
-        pass
+    def _format_str(self, has_tail=True):
+        values = [f"Node({v})" for v in self._get_values()]
+        
+        return values + ["None"] if has_tail else values 
+    
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data = data, next=None)
+        else:
+            curr = self.head
+            
+            while curr.next:
+                curr = curr.next
+            
+            curr.next = Node(data=data, next=None)
 
-    def appendleft(self):
-        pass
+    def append_left(self, data):
+        self.head = Node(data=data, next=self.head) 
     
     def insert(self):
         pass
@@ -25,22 +48,29 @@ class LinkedList:
     def reverse(self):
         pass
 
+
 class SinglyLinkedList(LinkedList):
-    def __init__(self, head, pointers):
-        super().__init__(head = head, pointers = pointers)
-    
+    def __init__(self, *values):
+        super().__init__(*values)
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({', '.join(self._get_values())})"
+
+    def __str__(self):
+        return " -> ".join(self._format_str())
+            
+            
 class DoublyLinkedList(LinkedList):
-    def __init__(self, head, pointers):
-        super().__init__(head = head, pointers = pointers)
+    def __init__(self, *values):
+        super().__init__(*values)
 
-class CircularLinkedList(LinkedList):
-    def __init__(self, head, pointers):
-        super().__init__(head = head, pointers = pointers)
+    def __repr__(self):
+        return f"{self.__class__.__name__}({', '.join(self._get_values())})"
 
-class EfficientLinkedList(LinkedList):
-    def __init__(self, head, pointers):
-        super().__init__(head = head, pointers = pointers)
+    def __str__(self):
+        return " <-> ".join(self._format_str())
 
-class SkipLinkedList(LinkedList):
-    def __init__(self, head, pointers):
-        super().__init__(head = head, pointers = pointers)
+class CircularLinkedList(SinglyLinkedList):
+    def __init__(self, *values):
+        super().__init__(*values)
+
