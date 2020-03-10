@@ -33,8 +33,18 @@ class LinkedList:
     def append_left(self, data):
         self.head = Node(data=data, next=self.head) 
     
-    def insert(self):
-        pass
+    def insert(self, position, data):
+        if position == 0:
+            self.append_left(data=data)
+        else:
+            pos, curr = 0, self.head
+
+            while pos < position - 1:
+                curr = curr.next
+                pos += 1
+
+            temp = curr.next
+            curr.next = Node(data=data, next=temp)
 
     def pop(self):
         pass
