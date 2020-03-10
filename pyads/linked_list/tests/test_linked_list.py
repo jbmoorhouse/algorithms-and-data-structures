@@ -71,22 +71,25 @@ def test_append_left(empty_singly, singly_linked_list):
         "(data=5, next=None))))))"
 
 
-test_data = [
-    (0, 10, "Node(data=10, next=None)", "Node(data=10, next=Node(data=1, " \
-     "next=Node(data=2, next=Node(data=3, next=Node(data=4, next=Node" \
-     "(data=5, next=None))))))"), 
-    (-1, 10, "Node(data=10, next=None)", "Node(data=1, next=Node(data=2, " \
-     "next=Node(data=3, next=Node(data=4, next=Node(data=5, next=Node" \
-     "(data=10, next = None)))))))")
+insert = [
+    (0, 10, "Node(data=10, next=Node(data=1, next=Node(data=2, " \
+     "next=Node(data=3, next=Node(data=4, next=Node(data=5, next=None))))))"), 
+    (5, 10, "Node(data=1, next=Node(data=2, next=Node(data=3, " \
+     "next=Node(data=4, next=Node(data=5, next=Node(data=10, next=None))))))"),
+    (3, 10, "Node(data=1, next=Node(data=2, next=Node(data=3, " \
+     "next=Node(data=10, next=Node(data=4, next=Node(data=5, next=None))))))")
 ]
 
-@pytest.mark.parametrize("position, data", [(0, 10), (-1, 10)])
-def test_insert_edges(empty_singly, singly_linked_list, position):
-    empty_singly.insert(position, data)
-    assert repr(empty_singly.head) == solution_one
+@pytest.mark.parametrize("position, data, solution", insert)
+def test_insert(
+    empty_singly, 
+    singly_linked_list, 
+    position, 
+    data, 
+    solution):
 
     singly_linked_list.insert(position, data)
-    assert repr(singly_linked_list.head) == solution_two
+    assert repr(singly_linked_list.head) == solution
 
 # =============================================================================
 # Test __repr__ and __str__
