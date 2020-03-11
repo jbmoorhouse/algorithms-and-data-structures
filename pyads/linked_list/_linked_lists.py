@@ -54,7 +54,22 @@ class LinkedList:
             curr.next = Node(data=data, next=temp)
 
     def pop(self):
-        pass
+        curr, prev = self.head, None
+
+        if not curr:
+            raise IndexError("``pop`` may not be use with an emtpy linked list")
+        
+        while curr.next:
+            prev = curr
+            curr = curr.next
+            
+        if prev:
+            prev.next = None
+        else:
+            self.head = None
+
+        return curr.data
+    
 
     def popleft(self):
         pass
