@@ -6,16 +6,23 @@ class LinkedList:
         
         for v in values:
             self.append(v)
-            
-    def _get_values(self):
-        curr = self.head
+        
+    def __iter__(self):
+        self.curr = self.head
+        return self
+    
+    def __next__(self):
+        curr = self.curr
         
         while curr:
-            yield str(curr.data)
-            curr = curr.next
+            temp = curr
+            self.curr = curr.next
+            return temp.data
+            
+        raise StopIteration
     
     def _format_str(self, has_tail=True):
-        values = [f"Node({v})" for v in self._get_values()]
+        values = [f"Node({v})" for v in self]
         
         return values + ["None"] if has_tail else values 
     
@@ -27,7 +34,7 @@ class LinkedList:
             
             while curr.next:
                 curr = curr.next
-            
+                
             curr.next = Node(data=data, next=None)
 
     def append_left(self, data):
@@ -64,7 +71,7 @@ class SinglyLinkedList(LinkedList):
         super().__init__(*values)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({', '.join(self._get_values())})"
+        return f"{self.__class__.__name__}({', '.join(str(v) for v in self)})"
 
     def __str__(self):
         return " -> ".join(self._format_str())
@@ -75,7 +82,7 @@ class DoublyLinkedList(LinkedList):
         super().__init__(*values)
 
     def __repr__(self):
-        return f"{self.__class__.__name__}({', '.join(self._get_values())})"
+        return f"{self.__class__.__name__}({', '.join(str(v) for v in self)})"
 
     def __str__(self):
         return " <-> ".join(self._format_str())
