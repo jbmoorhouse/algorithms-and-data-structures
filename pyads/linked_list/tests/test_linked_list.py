@@ -91,6 +91,20 @@ def test_insert(
     singly_linked_list.insert(position, data)
     assert repr(singly_linked_list.head) == solution
 
+def test_pop(empty_singly, singly_linked_list):
+    msg = "``pop`` may not be use with an emtpy linked list"
+
+    with pytest.raises(IndexError, match=msg):
+        empty_singly.pop()
+
+    assert singly_linked_list.pop() == 5
+    assert repr(singly_linked_list.head) == "Node(data=1, next=Node(data=2, " \
+        "next=Node(data=3, next=Node(data=4, next=None))))"
+
+    assert singly_linked_list.pop() == 4
+    assert repr(singly_linked_list.head) == "Node(data=1, next=Node(data=2, " \
+        "next=Node(data=3, next=None)))"
+
 # =============================================================================
 # Test __repr__ and __str__
 # =============================================================================
@@ -134,3 +148,4 @@ def test_repr(
 
     # assert print(empty_circular) == "SinglyLinkedList()"
     # assert print(circular_linked_list) == "SinglyLinkedList(1, 2, 3, 4, 5)"
+
