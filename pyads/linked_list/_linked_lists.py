@@ -1,6 +1,13 @@
 from .._node import Node
 
-class LinkedList:
+from abc import ABCMeta, abstractmethod
+
+# =============================================================================
+# Base linked list
+# =============================================================================
+
+class LinkedList(metaclass=ABCMeta):
+    @abstractmethod
     def __init__(self, *values):
         self.head = None
         
@@ -15,8 +22,7 @@ class LinkedList:
         curr = self.curr
         
         while curr:
-            temp = curr
-            self.curr = curr.next
+            temp, self.curr = curr, curr.next
             return temp.data
             
         raise StopIteration
@@ -25,6 +31,11 @@ class LinkedList:
         values = [f"Node({v})" for v in self]
         
         return values + ["None"] if has_tail else values 
+
+    def _check_length(self):
+        if not self.head:
+            raise IndexError(
+        "``pop`` may not be use with an emtpy linked list") 
     
     def append(self, data):
         if not self.head:
@@ -54,25 +65,27 @@ class LinkedList:
             curr.next = Node(data=data, next=temp)
 
     def pop(self):
-        curr, prev = self.head, None
+        self._check_length()
 
-        if not curr:
-            raise IndexError("``pop`` may not be use with an emtpy linked list")
-        
+        curr, prev = self.head, None
         while curr.next:
-            prev = curr
-            curr = curr.next
+            prev, curr = curr, curr.next
             
         if prev:
             prev.next = None
         else:
             self.head = None
-
+            
         return curr.data
     
 
-    def popleft(self):
-        pass
+    def pop_left(self):
+        self._check_length()
+
+        curr = self.head
+        self.head = curr.next
+
+        return curr.data
 
     def remove(self):
         pass
@@ -80,6 +93,9 @@ class LinkedList:
     def reverse(self):
         pass
 
+# =============================================================================
+# Public Objects
+# =============================================================================
 
 class SinglyLinkedList(LinkedList):
     def __init__(self, *values):
