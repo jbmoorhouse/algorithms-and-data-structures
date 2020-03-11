@@ -105,6 +105,20 @@ def test_pop(empty_singly, singly_linked_list):
     assert repr(singly_linked_list.head) == "Node(data=1, next=Node(data=2, " \
         "next=Node(data=3, next=None)))"
 
+def test_pop_left(empty_singly, singly_linked_list):
+    msg = "``pop`` may not be use with an emtpy linked list"
+
+    with pytest.raises(IndexError, match=msg):
+        empty_singly.pop_left()
+
+    assert singly_linked_list.pop_left() == 1
+    assert repr(singly_linked_list.head) == "Node(data=2, next=Node(data=3, " \
+        "next=Node(data=4, next=Node(data=5, next=None))))"
+
+    assert singly_linked_list.pop_left() == 2
+    assert repr(singly_linked_list.head) == "Node(data=3, next=Node(data=4, " \
+        "next=Node(data=5, next=None)))"
+
 # =============================================================================
 # Test __repr__ and __str__
 # =============================================================================
