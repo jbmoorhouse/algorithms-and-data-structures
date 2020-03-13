@@ -100,10 +100,12 @@ def test_pop(empty_singly, singly_linked_list):
     assert singly_linked_list.pop() == 5
     assert repr(singly_linked_list.head) == "Node(data=1, next=Node(data=2, " \
         "next=Node(data=3, next=Node(data=4, next=None))))"
+    assert singly_linked_list.length == 4
 
     assert singly_linked_list.pop() == 4
     assert repr(singly_linked_list.head) == "Node(data=1, next=Node(data=2, " \
         "next=Node(data=3, next=None)))"
+    assert singly_linked_list.length == 3
 
 def test_pop_left(empty_singly, singly_linked_list):
     msg = "Object is empty. Cannot remove items"
@@ -114,10 +116,12 @@ def test_pop_left(empty_singly, singly_linked_list):
     assert singly_linked_list.pop_left() == 1
     assert repr(singly_linked_list.head) == "Node(data=2, next=Node(data=3, " \
         "next=Node(data=4, next=Node(data=5, next=None))))"
+    assert singly_linked_list.length == 4
 
     assert singly_linked_list.pop_left() == 2
     assert repr(singly_linked_list.head) == "Node(data=3, next=Node(data=4, " \
         "next=Node(data=5, next=None)))"
+    assert singly_linked_list.length == 3
 
 
 def test_remove(empty_singly, singly_linked_list):
