@@ -92,7 +92,7 @@ def test_insert(
     assert repr(singly_linked_list.head) == solution
 
 def test_pop(empty_singly, singly_linked_list):
-    msg = "``pop`` may not be use with an emtpy linked list"
+    msg = "Object is empty. Cannot remove items"
 
     with pytest.raises(IndexError, match=msg):
         empty_singly.pop()
@@ -106,7 +106,7 @@ def test_pop(empty_singly, singly_linked_list):
         "next=Node(data=3, next=None)))"
 
 def test_pop_left(empty_singly, singly_linked_list):
-    msg = "``pop`` may not be use with an emtpy linked list"
+    msg = "Object is empty. Cannot remove items"
 
     with pytest.raises(IndexError, match=msg):
         empty_singly.pop_left()
@@ -118,6 +118,31 @@ def test_pop_left(empty_singly, singly_linked_list):
     assert singly_linked_list.pop_left() == 2
     assert repr(singly_linked_list.head) == "Node(data=3, next=Node(data=4, " \
         "next=Node(data=5, next=None)))"
+
+
+def test_remove(empty_singly, singly_linked_list):
+    msg = "``position`` out of range"        
+
+    with pytest.raises(IndexError, match=msg):
+        empty_singly.remove(1)
+        singly_linked_list.remove(5)
+        singly_linked_list.remove(-1)
+
+    singly_linked_list.remove(0)
+    assert repr(singly_linked_list.head) == "Node(data=2, next=Node(data=3, " \
+        "next=Node(data=4, next=Node(data=5, next=None))))"
+    assert singly_linked_list.length == 4
+    
+    singly_linked_list.remove(3)
+    assert repr(singly_linked_list.head) == "Node(data=2, next=Node(data=3, " \
+        "next=Node(data=4, next=None)))"
+    assert singly_linked_list.length == 3
+
+    singly_linked_list.remove(1)
+    assert repr(singly_linked_list.head) == "Node(data=2, next=Node(data=4, " \
+        "next=None))"
+    assert singly_linked_list.length == 2
+
 
 # =============================================================================
 # Test __repr__ and __str__
