@@ -100,16 +100,17 @@ class LinkedList(metaclass=ABCMeta):
             raise IndexError("``position`` out of range")  
         elif position == 0:
             self.pop_left()
-        else:
-            curr, pos = self.head, 1
+            return
+            
+        curr, pos = self.head, 1
 
-            while pos < position:
-                curr = curr.next
-                pos += 1
+        while pos < position:
+            curr = curr.next
+            pos += 1
 
-            temp = curr.next
-            curr.next = temp.next
-            self.length -= 1
+        temp = curr.next
+        curr.next = temp.next
+        self.length -= 1
 
     def reverse(self):
         pass
