@@ -10,6 +10,7 @@ class LinkedList(metaclass=ABCMeta):
     @abstractmethod
     def __init__(self, *values):
         self.head = None
+        self.length = 0
         
         for v in values:
             self.append(v)
@@ -35,7 +36,7 @@ class LinkedList(metaclass=ABCMeta):
     def _check_length(self):
         if not self.head:
             raise IndexError(
-        "``pop`` may not be use with an emtpy linked list") 
+        "Object is empty. Cannot remove items") 
     
     def append(self, data):
         if not self.head:
@@ -48,8 +49,11 @@ class LinkedList(metaclass=ABCMeta):
                 
             curr.next = Node(data=data, next=None)
 
+        self.length += 1
+
     def append_left(self, data):
-        self.head = Node(data=data, next=self.head) 
+        self.head = Node(data=data, next=self.head)
+        self.length += 1
     
     def insert(self, position, data):
         if position == 0:
@@ -63,6 +67,7 @@ class LinkedList(metaclass=ABCMeta):
 
             temp = curr.next
             curr.next = Node(data=data, next=temp)
+            self.length += 1
 
     def pop(self):
         self._check_length()
@@ -72,23 +77,39 @@ class LinkedList(metaclass=ABCMeta):
             prev, curr = curr, curr.next
             
         if prev:
-            prev.next = None
+            prev.next = None 
         else:
             self.head = None
-            
+        
+        self.length -= 1
         return curr.data
     
-
     def pop_left(self):
         self._check_length()
 
         curr = self.head
         self.head = curr.next
 
+        self.length -= 1
         return curr.data
 
-    def remove(self):
-        pass
+    def remove(self, position):
+        last_idx = self.length - 1
+
+        if position < 0 or position > last_idx:
+            raise IndexError("``position`` out of range")  
+        elif position == 0:
+            self.pop_left()
+        else:
+            curr, pos = self.head, 1
+
+            while pos < position:
+                curr = curr.next
+                pos += 1
+
+            temp = curr.next
+            curr.next = temp.next
+            self.length -= 1
 
     def reverse(self):
         pass
