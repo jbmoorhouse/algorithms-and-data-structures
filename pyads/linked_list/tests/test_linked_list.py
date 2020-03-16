@@ -154,11 +154,11 @@ def test_reverse(empty_singly, singly_linked_list):
     assert repr(empty_singly) == 'SinglyLinkedList()'
 
     singly_linked_list.reverse()
-    assert repr(singly_linked_list) == "Node(data=5, next=Node(data=4, " \
+    assert repr(singly_linked_list.head) == "Node(data=5, next=Node(data=4, " \
         "next=Node(data=3, next=Node(data=2, next=Node(data=1, next=None)))))"
 
     singly_linked_list.reverse()
-    assert repr(singly_linked_list) == "Node(data=1, next=Node(data=2, " \
+    assert repr(singly_linked_list.head) == "Node(data=1, next=Node(data=2, " \
         "next=Node(data=3, next=Node(data=4, next=Node(data=5, next=None)))))"
 
 
