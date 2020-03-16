@@ -113,7 +113,16 @@ class LinkedList(metaclass=ABCMeta):
         self.length -= 1
 
     def reverse(self):
-        pass
+        prev, curr = None, self.head
+
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+
+        self.head = prev
+
 
 # =============================================================================
 # Public Objects
