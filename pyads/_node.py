@@ -1,21 +1,14 @@
-class Node:   
-    """Data structure node which be used in applications such as linked
-        list, trees etc.
-        
-        Parameters
-        ----------
-        data : int or float
-            Simple node contains only numerical data
-        pointers : Node or None
-            Set an arbritary number of pointers, depending on the data 
-            structure type. E.g. Linked list may contain ``next`` and 
-            ``prev``. A tree may contain ``left`` and ``right`` etc
 
-        Examples
-        --------
-        n1 = Node(data = 10)
-        n2 = Node(data = 5, left = n1)
-        """
+# =============================================================================
+# Base node
+# =============================================================================
+
+class Node:   
+    """Non-public API.
+    
+    Base node class to be used when constructing specialist nodes for simple 
+    data structures, such as linked lists, trees etc.
+    """
          
     def __init__(self, data, **pointers):
         self.data = data
@@ -42,7 +35,57 @@ class Node:
         super().__setattr__(name, value)
 
 
+# =============================================================================
+# Public API
+# =============================================================================
+
 class SinglyNode(Node):
+    """Singly linked list Node for numerical data
+
+    Definition of a singly linked list node. This class should not be used in
+    isolation to construct or mutate a singly linked list. Instead, a seperate
+    class should be defined to create these behaviours. i.e a linked list is 
+    defined as a composite data structure, which contains N SinglyNodes.
+    
+    Parameters
+    ----------
+    data : int or float
+        Numerical data to be stored in the node
+    next : SinglyNode, default None
+        Pointer to the next element in the linked list objezt
+    
+    Examples
+    --------
+    # Only a single node
+
+    >>> sn = SinglyNode(data=1)
+    ...
+    >>> print(sn)
+    ... Node(1) -> None
+    ...
+    >>> repr(sn)
+    ... 'SinglyNode(data=1, next=None)'
+
+    # The following behaviour is not advised.
+
+    >>> sn = SinglyNode(data=1, next=SinglyNode(data=2))
+    ...
+    >>> print(sn)
+    ... Node(1) -> 
+    ...
+    >>> repr(sn)
+    ... 'SinglyNode(data=1, next=SinglyNode(data=2, next=None))'
+
+    # Bad inputs 
+
+    >>> sn = SinglyNode(data=1, next=2)
+    ... TypeError: Bad type for `next`, detected <class 'int'>. Should be 
+        <class '__main__.SinglyNode'>
+
+    >>> sn = SinglyNode(data="a") 
+    ... TypeError: Bad type for `data`, detected <class 'str'>. Should be 
+        <class 'int'> or <class 'float'>
+    """
     
     def __init__(self, data, next=None):
         super().__init__(data = data, next=next)
