@@ -6,7 +6,7 @@ from abc import ABCMeta, abstractmethod
 # Base linked list
 # =============================================================================
 
-class LinkedList(metaclass=ABCMeta):
+class BaseLinkedList(metaclass=ABCMeta):
     @abstractmethod
     def __init__(self, *values):
         self.head = None
@@ -123,12 +123,11 @@ class LinkedList(metaclass=ABCMeta):
 
         self.head = prev
 
-
 # =============================================================================
-# Public Objects
+# Public API
 # =============================================================================
 
-class SinglyLinkedList(LinkedList):
+class SinglyLinkedList(BaseLinkedList):
     def __init__(self, *values):
         super().__init__(*values)
 
@@ -139,7 +138,7 @@ class SinglyLinkedList(LinkedList):
         return " -> ".join(self._format_str())
             
             
-class DoublyLinkedList(LinkedList):
+class DoublyLinkedList(BaseLinkedList):
     def __init__(self, *values):
         super().__init__(*values)
 
@@ -149,7 +148,7 @@ class DoublyLinkedList(LinkedList):
     def __str__(self):
         return " <-> ".join(self._format_str())
 
-class CircularLinkedList(SinglyLinkedList):
+class CircularLinkedList(BaseLinkedList):
     def __init__(self, *values):
         super().__init__(*values)
 
