@@ -1,6 +1,3 @@
-"""
-"""
-# =============================================================================
 class Node:   
     """Data structure node which be used in applications such as linked
         list, trees etc.
@@ -33,10 +30,24 @@ class Node:
         return f"{self.__class__.__name__}({attr})"
                 
     def __setattr__(self, name, value):
+        err_msg = f"Bad type for `{name}`, detected {type(value)}."
+        
         if name == 'data':
-            pass
-        elif not (isinstance(value, Node) or value is None):
-            raise TypeError(f"Bad type for {name}, detected {type(value)}")
-    
-        self.__dict__[name] = value
+            if not isinstance(value, (int, float)):
+                raise TypeError(
+                f"{err_msg} Should be <class 'int'> or <class 'float'>")
+        elif not (isinstance(value, type(self)) or value is None):
+            raise TypeError(f"{err_msg} Should be {type(self)}")
+            
+        super().__setattr__(name, value)
+
+
+        
+class SinglyNode(Node):
+    def __init__(self, data, next=None):
+        super().__init__(data = data, next=next)
+
+class DoublyNode(Node):
+    def __init__(self, data, next=None, prev=None):
+        super().__init__(data = data, next=next, prev=prev)
 
