@@ -42,12 +42,22 @@ class Node:
         super().__setattr__(name, value)
 
 
-        
 class SinglyNode(Node):
+    
     def __init__(self, data, next=None):
         super().__init__(data = data, next=next)
+        
+    def __str__(self):
+        _next = None if not self.next else ""
+        return f"Node({self.data}) -> {_next}"
 
 class DoublyNode(Node):
     def __init__(self, data, next=None, prev=None):
         super().__init__(data = data, next=next, prev=prev)
+        
+    def __str__(self):
+        _prev = None if not self.prev else ""
+        _next = None if not self.next else ""
+        
+        return f"{_prev} <- Node({self.data}) -> {_next}"
 
