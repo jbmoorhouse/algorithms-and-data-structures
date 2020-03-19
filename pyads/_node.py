@@ -21,6 +21,9 @@ class Node:
             f"{attr}={value!r}" for attr, value in self.__dict__.items())
 
         return f"{self.__class__.__name__}({attr})"
+
+    def __str__(self):
+        return f"{self.__class__.__name__}({self.data})"
                 
     def __setattr__(self, name, value):
         err_msg = f"Bad type for `{name}`, detected {type(value)}."
@@ -89,18 +92,10 @@ class SinglyNode(Node):
     
     def __init__(self, data, next=None):
         super().__init__(data = data, next=next)
-        
-    def __str__(self):
-        _next = None if not self.next else ""
-        return f"Node({self.data}) -> {_next}"
+    
 
 class DoublyNode(Node):
     def __init__(self, data, next=None, prev=None):
         super().__init__(data = data, next=next, prev=prev)
         
-    def __str__(self):
-        _prev = None if not self.prev else ""
-        _next = None if not self.next else ""
-        
-        return f"{_prev} <- Node({self.data}) -> {_next}"
 
