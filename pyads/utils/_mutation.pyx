@@ -4,7 +4,7 @@ import numpy as np
 
 @boundscheck(False)
 @wraparound(False)
-cpdef np.ndarray[np.int32_t, ndim=2] swap_indices(
+cpdef np.ndarray[np.int32_t, ndim=2] _swap(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
     
@@ -21,7 +21,7 @@ cpdef np.ndarray[np.int32_t, ndim=2] swap_indices(
 
 @boundscheck(False)
 @wraparound(False)
-cpdef np.ndarray[np.int32_t, ndim=2] reverse_indices(
+cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
     
@@ -41,7 +41,7 @@ cpdef np.ndarray[np.int32_t, ndim=2] reverse_indices(
 
 @boundscheck(False)
 @wraparound(False)
-cpdef np.ndarray[np.int32_t, ndim=2] insertion_indices(
+cpdef np.ndarray[np.int32_t, ndim=2] _insert(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices,
     int step = 1):
