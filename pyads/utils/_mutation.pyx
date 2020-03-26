@@ -7,6 +7,7 @@ import numpy as np
 cpdef np.ndarray[np.int32_t, ndim=2] _swap(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
+    """2D vector row-rise swap mutation"""
     
     cdef:
         Py_ssize_t idx, N = arr.shape[0]
