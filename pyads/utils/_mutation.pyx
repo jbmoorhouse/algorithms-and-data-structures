@@ -18,7 +18,7 @@ import numpy as np
 cpdef np.ndarray[np.int32_t, ndim=2] _swap(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
-    """2D vector row-rise swap mutation"""
+    """2D vector row-rise swap mutation method"""
     
     cdef:
         Py_ssize_t idx, N = arr.shape[0]
@@ -34,7 +34,7 @@ cpdef np.ndarray[np.int32_t, ndim=2] _swap(
 cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
-    """2D vector row-rise reversion mutation"""
+    """2D vector row-rise reversion mutation method"""
 
     cdef:
         Py_ssize_t idx, N = arr.shape[0]
@@ -55,7 +55,7 @@ cpdef np.ndarray[np.int32_t, ndim=2] _insert(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices,
     int step = 1):
-    """2D vector row-rise insertion mutation"""
+    """2D vector row-rise insertion mutation method"""
     
     cdef:
         Py_ssize_t i, j, N = arr.shape[0]
