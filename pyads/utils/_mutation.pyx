@@ -1,3 +1,8 @@
+"""
+Collection of array mutation strategies for combinatorial 
+optimisationapplications.
+"""
+
 # cython: cdivision=True
 # cython: boundscheck=False
 # cython: wraparound=False
@@ -29,7 +34,8 @@ cpdef np.ndarray[np.int32_t, ndim=2] _swap(
 cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
-    
+    """2D vector row-rise reversion mutation"""
+
     cdef:
         Py_ssize_t idx, N = arr.shape[0]
         np.int32_t i, j
@@ -49,6 +55,7 @@ cpdef np.ndarray[np.int32_t, ndim=2] _insert(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices,
     int step = 1):
+    """2D vector row-rise insertion mutation"""
     
     cdef:
         Py_ssize_t i, j, N = arr.shape[0]
