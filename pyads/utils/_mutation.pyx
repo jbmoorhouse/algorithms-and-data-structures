@@ -1,9 +1,15 @@
+# cython: cdivision=True
+# cython: boundscheck=False
+# cython: wraparound=False
+
+# Authors: Joseph Moorhouse <moorhouse@live.co.uk>
+#
+# License: BSD 3 clause
+
 from cython cimport boundscheck, wraparound
 cimport numpy as np
 import numpy as np
 
-@boundscheck(False)
-@wraparound(False)
 cpdef np.ndarray[np.int32_t, ndim=2] _swap(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
@@ -20,8 +26,6 @@ cpdef np.ndarray[np.int32_t, ndim=2] _swap(
     return arr
 
 
-@boundscheck(False)
-@wraparound(False)
 cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
@@ -40,8 +44,7 @@ cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     
     return arr
 
-@boundscheck(False)
-@wraparound(False)
+
 cpdef np.ndarray[np.int32_t, ndim=2] _insert(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices,
