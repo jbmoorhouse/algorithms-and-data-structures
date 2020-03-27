@@ -1,6 +1,6 @@
 """
 Collection of array mutation strategies for combinatorial 
-optimisationapplications.
+optimisation applications.
 """
 
 # cython: cdivision=True
@@ -30,7 +30,6 @@ cpdef np.ndarray[np.int32_t, ndim=2] _swap(
     
     return arr
 
-
 cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     np.ndarray[np.int32_t, ndim=2] arr, 
     np.ndarray[np.int32_t, ndim=2] indices):
@@ -49,7 +48,6 @@ cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
             j -= 1
     
     return arr
-
 
 cpdef np.ndarray[np.int32_t, ndim=2] _insert(
     np.ndarray[np.int32_t, ndim=2] arr, 
