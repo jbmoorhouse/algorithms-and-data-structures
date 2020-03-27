@@ -16,7 +16,7 @@ class BaseLinkedList(metaclass=ABCMeta):
             self.append(v)
         
     def __iter__(self):
-        self.curr = self.head
+        self.curr = self.headco
         return self
     
     def __next__(self):
