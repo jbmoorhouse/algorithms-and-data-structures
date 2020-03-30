@@ -3,8 +3,6 @@ import numpy as np
 from Cython.Build import cythonize
 
 def compile_cython_files():
-
-
     setup(
         name = "_mutation",
         ext_modules = cythonize("_mutation.pyx"),
