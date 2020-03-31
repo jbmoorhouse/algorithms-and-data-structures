@@ -136,19 +136,3 @@ class SinglyLinkedList(BaseLinkedList):
 
     def __str__(self):
         return " -> ".join(self._format_str())
-            
-            
-class DoublyLinkedList(BaseLinkedList):
-    def __init__(self, *values):
-        super().__init__(*values)
-
-    def __repr__(self):
-        return f"{self.__class__.__name__}({', '.join(str(v) for v in self)})"
-
-    def __str__(self):
-        return " <-> ".join(self._format_str())
-
-class CircularLinkedList(BaseLinkedList):
-    def __init__(self, *values):
-        super().__init__(*values)
-
