@@ -15,29 +15,32 @@ from cython cimport boundscheck, wraparound
 cimport numpy as np
 import numpy as np
 
-cpdef np.ndarray[np.int32_t, ndim=2] _swap(
-    np.ndarray[np.int32_t, ndim=2] arr, 
-    np.ndarray[np.int32_t, ndim=2] indices):
+ctypedef np.int64_t DTYPE
+
+cpdef np.ndarray[DTYPE, ndim=2] array_indices_swap2d(
+    np.ndarray[DTYPE, ndim=2] arr, 
+    np.ndarray[DTYPE, ndim=2] indices):
     """2D vector row-rise swap mutation method"""
     
     cdef:
         Py_ssize_t idx, N = arr.shape[0]
-        np.int32_t i, j
+        DTYPE i, j
         
     for idx in range(N):
         i, j = indices[idx, 0], indices[idx, 1]
         arr[idx, i], arr[idx, j] = arr[idx, j], arr[idx,i]
     
     return arr
+    
 
-cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
-    np.ndarray[np.int32_t, ndim=2] arr, 
-    np.ndarray[np.int32_t, ndim=2] indices):
+cpdef np.ndarray[DTYPE, ndim=2] array_indices_reverse2d(
+    np.ndarray[DTYPE, ndim=2] arr, 
+    np.ndarray[DTYPE, ndim=2] indices):
     """2D vector row-rise reversion mutation method"""
 
     cdef:
         Py_ssize_t idx, N = arr.shape[0]
-        np.int32_t i, j
+        DTYPE i, j
     
     for idx in range(N):
         i, j = indices[idx, 0], indices[idx, 1]
@@ -49,15 +52,16 @@ cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
     
     return arr
 
-cpdef np.ndarray[np.int32_t, ndim=2] _insert(
-    np.ndarray[np.int32_t, ndim=2] arr, 
-    np.ndarray[np.int32_t, ndim=2] indices,
+cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(
+    np.ndarray[DTYPE, ndim=2] arr, 
+    np.ndarray[DTYPE, ndim=2] indices,
     int step = 1):
-    """2D vector row-rise insertion mutation method"""
+    """2D vector row-rise insertion mutation method using cylic array
+    rotation. See https://www.geeksforgeeks.org/array-rotation/"""
     
     cdef:
         Py_ssize_t i, j, N = arr.shape[0]
-        np.int32_t start, stop, n, shift
+        DTYPE start, stop, n, shift
             
     for i in range(N):
         start, stop = indices[i, 0], indices[i, 1] + 1
