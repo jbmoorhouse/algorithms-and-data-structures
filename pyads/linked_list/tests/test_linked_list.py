@@ -1,7 +1,5 @@
 from .._linked_lists import (
-    SinglyLinkedList,
-    DoublyLinkedList,
-    CircularLinkedList
+    SinglyLinkedList
 )
 
 import pytest
