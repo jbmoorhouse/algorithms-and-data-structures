@@ -1069,6 +1069,15 @@ typedef npy_double __pyx_t_5numpy_double_t;
  * ctypedef npy_cfloat      cfloat_t
  */
 typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
+
+/* "_mutation.pyx":18
+ * import numpy as np
+ * 
+ * ctypedef np.int64_t DTYPE             # <<<<<<<<<<<<<<
+ * 
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_swap2d(
+ */
+typedef __pyx_t_5numpy_int64_t __pyx_t_9_mutation_DTYPE;
 /* Declarations.proto */
 #if CYTHON_CCOMPLEX
   #ifdef __cplusplus
@@ -1131,16 +1140,16 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  * cdef inline object PyArray_MultiIterNew1(a):
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
-struct __pyx_opt_args_9_mutation__insert;
+struct __pyx_opt_args_9_mutation_array_indices_insert2d;
 
-/* "_mutation.pyx":52
+/* "_mutation.pyx":55
  *     return arr
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _insert(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices,
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices,
  */
-struct __pyx_opt_args_9_mutation__insert {
+struct __pyx_opt_args_9_mutation_array_indices_insert2d {
   int __pyx_n;
   int step;
 };
@@ -1299,7 +1308,7 @@ static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
 static int __Pyx__ArgTypeTest(PyObject *obj, PyTypeObject *type, const char *name, int exact);
 
 /* None.proto */
-static CYTHON_INLINE __pyx_t_5numpy_int32_t __Pyx_mod___pyx_t_5numpy_int32_t(__pyx_t_5numpy_int32_t, __pyx_t_5numpy_int32_t);
+static CYTHON_INLINE __pyx_t_9_mutation_DTYPE __Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_t_9_mutation_DTYPE, __pyx_t_9_mutation_DTYPE);
 
 /* PyObjectCall.proto */
 #if CYTHON_COMPILING_IN_CPYTHON
@@ -1494,7 +1503,7 @@ typedef struct {
 
 
 /* CIntToPy.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int32(npy_int32 value);
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int64(npy_int64 value);
 
 /* RealImag.proto */
 #if CYTHON_CCOMPLEX
@@ -1659,10 +1668,10 @@ static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, char *, char *, int *); /*proto*/
 
 /* Module declarations from '_mutation' */
-static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *, PyArrayObject *, int __pyx_skip_dispatch); /*proto*/
-static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *, PyArrayObject *, int __pyx_skip_dispatch); /*proto*/
-static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *, PyArrayObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9_mutation__insert *__pyx_optional_args); /*proto*/
-static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t = { "int32_t", NULL, sizeof(__pyx_t_5numpy_int32_t), { 0 }, 0, IS_UNSIGNED(__pyx_t_5numpy_int32_t) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_5numpy_int32_t), 0 };
+static PyArrayObject *__pyx_f_9_mutation_array_indices_swap2d(PyArrayObject *, PyArrayObject *, int __pyx_skip_dispatch); /*proto*/
+static PyArrayObject *__pyx_f_9_mutation_array_indices_reverse2d(PyArrayObject *, PyArrayObject *, int __pyx_skip_dispatch); /*proto*/
+static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *, PyArrayObject *, int __pyx_skip_dispatch, struct __pyx_opt_args_9_mutation_array_indices_insert2d *__pyx_optional_args); /*proto*/
+static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE = { "DTYPE", NULL, sizeof(__pyx_t_9_mutation_DTYPE), { 0 }, 0, IS_UNSIGNED(__pyx_t_9_mutation_DTYPE) ? 'U' : 'I', IS_UNSIGNED(__pyx_t_9_mutation_DTYPE), 0 };
 #define __Pyx_MODULE_NAME "_mutation"
 extern int __pyx_module_is_main__mutation;
 int __pyx_module_is_main__mutation = 0;
@@ -1717,9 +1726,9 @@ static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_step;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
-static PyObject *__pyx_pf_9_mutation__swap(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices); /* proto */
-static PyObject *__pyx_pf_9_mutation_2_reverse(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices); /* proto */
-static PyObject *__pyx_pf_9_mutation_4_insert(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, int __pyx_v_step); /* proto */
+static PyObject *__pyx_pf_9_mutation_array_indices_swap2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices); /* proto */
+static PyObject *__pyx_pf_9_mutation_2array_indices_reverse2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices); /* proto */
+static PyObject *__pyx_pf_9_mutation_4array_indices_insert2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, int __pyx_v_step); /* proto */
 static int __pyx_pf_5numpy_7ndarray___getbuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_pf_5numpy_7ndarray_2__releasebuffer__(PyArrayObject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tuple_;
@@ -1731,20 +1740,20 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 /* Late includes */
 
-/* "_mutation.pyx":18
- * import numpy as np
+/* "_mutation.pyx":20
+ * ctypedef np.int64_t DTYPE
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _swap(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices):
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_swap2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices):
  */
 
-static PyObject *__pyx_pw_9_mutation_1_swap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_9_mutation_1array_indices_swap2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_9_mutation_array_indices_swap2d(PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, CYTHON_UNUSED int __pyx_skip_dispatch) {
   Py_ssize_t __pyx_v_idx;
   Py_ssize_t __pyx_v_N;
-  __pyx_t_5numpy_int32_t __pyx_v_i;
-  __pyx_t_5numpy_int32_t __pyx_v_j;
+  __pyx_t_9_mutation_DTYPE __pyx_v_i;
+  __pyx_t_9_mutation_DTYPE __pyx_v_j;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -1757,19 +1766,18 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
   Py_ssize_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
   int __pyx_t_6;
-  __pyx_t_5numpy_int32_t __pyx_t_7;
+  __pyx_t_9_mutation_DTYPE __pyx_t_7;
   Py_ssize_t __pyx_t_8;
   Py_ssize_t __pyx_t_9;
-  __pyx_t_5numpy_int32_t __pyx_t_10;
+  __pyx_t_9_mutation_DTYPE __pyx_t_10;
   Py_ssize_t __pyx_t_11;
   Py_ssize_t __pyx_t_12;
-  Py_ssize_t __pyx_t_13;
-  Py_ssize_t __pyx_t_14;
+  __pyx_t_9_mutation_DTYPE __pyx_t_13;
+  __pyx_t_9_mutation_DTYPE __pyx_t_14;
   Py_ssize_t __pyx_t_15;
-  Py_ssize_t __pyx_t_16;
+  __pyx_t_9_mutation_DTYPE __pyx_t_16;
   Py_ssize_t __pyx_t_17;
-  Py_ssize_t __pyx_t_18;
-  __Pyx_RefNannySetupContext("_swap", 0);
+  __Pyx_RefNannySetupContext("array_indices_swap2d", 0);
   __pyx_pybuffer_arr.pybuffer.buf = NULL;
   __pyx_pybuffer_arr.refcount = 0;
   __pyx_pybuffernd_arr.data = NULL;
@@ -1780,26 +1788,26 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
   __pyx_pybuffernd_indices.rcbuffer = &__pyx_pybuffer_indices;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 20, __pyx_L1_error)
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 20, __pyx_L1_error)
   }
   __pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_indices.diminfo[1].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_indices.diminfo[1].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[1];
 
-  /* "_mutation.pyx":24
+  /* "_mutation.pyx":26
  * 
  *     cdef:
  *         Py_ssize_t idx, N = arr.shape[0]             # <<<<<<<<<<<<<<
- *         np.int32_t i, j
+ *         DTYPE i, j
  * 
  */
   __pyx_v_N = (__pyx_v_arr->dimensions[0]);
 
-  /* "_mutation.pyx":27
- *         np.int32_t i, j
+  /* "_mutation.pyx":29
+ *         DTYPE i, j
  * 
  *     for idx in range(N):             # <<<<<<<<<<<<<<
  *         i, j = indices[idx, 0], indices[idx, 1]
@@ -1810,7 +1818,7 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_idx = __pyx_t_3;
 
-    /* "_mutation.pyx":28
+    /* "_mutation.pyx":30
  * 
  *     for idx in range(N):
  *         i, j = indices[idx, 0], indices[idx, 1]             # <<<<<<<<<<<<<<
@@ -1830,9 +1838,9 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
     } else if (unlikely(__pyx_t_5 >= __pyx_pybuffernd_indices.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 28, __pyx_L1_error)
+      __PYX_ERR(0, 30, __pyx_L1_error)
     }
-    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_indices.diminfo[1].strides));
+    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_indices.diminfo[1].strides));
     __pyx_t_8 = __pyx_v_idx;
     __pyx_t_9 = 1;
     __pyx_t_6 = -1;
@@ -1846,13 +1854,13 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
     } else if (unlikely(__pyx_t_9 >= __pyx_pybuffernd_indices.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 28, __pyx_L1_error)
+      __PYX_ERR(0, 30, __pyx_L1_error)
     }
-    __pyx_t_10 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_indices.diminfo[1].strides));
+    __pyx_t_10 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_indices.diminfo[1].strides));
     __pyx_v_i = __pyx_t_7;
     __pyx_v_j = __pyx_t_10;
 
-    /* "_mutation.pyx":29
+    /* "_mutation.pyx":31
  *     for idx in range(N):
  *         i, j = indices[idx, 0], indices[idx, 1]
  *         arr[idx, i], arr[idx, j] = arr[idx, j], arr[idx,i]             # <<<<<<<<<<<<<<
@@ -1860,37 +1868,37 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
  *     return arr
  */
     __pyx_t_11 = __pyx_v_idx;
-    __pyx_t_12 = __pyx_v_j;
+    __pyx_t_10 = __pyx_v_j;
     __pyx_t_6 = -1;
     if (__pyx_t_11 < 0) {
       __pyx_t_11 += __pyx_pybuffernd_arr.diminfo[0].shape;
       if (unlikely(__pyx_t_11 < 0)) __pyx_t_6 = 0;
     } else if (unlikely(__pyx_t_11 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-    if (__pyx_t_12 < 0) {
-      __pyx_t_12 += __pyx_pybuffernd_arr.diminfo[1].shape;
-      if (unlikely(__pyx_t_12 < 0)) __pyx_t_6 = 1;
-    } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+    if (__pyx_t_10 < 0) {
+      __pyx_t_10 += __pyx_pybuffernd_arr.diminfo[1].shape;
+      if (unlikely(__pyx_t_10 < 0)) __pyx_t_6 = 1;
+    } else if (unlikely(__pyx_t_10 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 29, __pyx_L1_error)
+      __PYX_ERR(0, 31, __pyx_L1_error)
     }
-    __pyx_t_10 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_12, __pyx_pybuffernd_arr.diminfo[1].strides));
-    __pyx_t_13 = __pyx_v_idx;
-    __pyx_t_14 = __pyx_v_i;
+    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_11, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_arr.diminfo[1].strides));
+    __pyx_t_12 = __pyx_v_idx;
+    __pyx_t_13 = __pyx_v_i;
     __pyx_t_6 = -1;
+    if (__pyx_t_12 < 0) {
+      __pyx_t_12 += __pyx_pybuffernd_arr.diminfo[0].shape;
+      if (unlikely(__pyx_t_12 < 0)) __pyx_t_6 = 0;
+    } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
     if (__pyx_t_13 < 0) {
-      __pyx_t_13 += __pyx_pybuffernd_arr.diminfo[0].shape;
-      if (unlikely(__pyx_t_13 < 0)) __pyx_t_6 = 0;
-    } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-    if (__pyx_t_14 < 0) {
-      __pyx_t_14 += __pyx_pybuffernd_arr.diminfo[1].shape;
-      if (unlikely(__pyx_t_14 < 0)) __pyx_t_6 = 1;
-    } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+      __pyx_t_13 += __pyx_pybuffernd_arr.diminfo[1].shape;
+      if (unlikely(__pyx_t_13 < 0)) __pyx_t_6 = 1;
+    } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 29, __pyx_L1_error)
+      __PYX_ERR(0, 31, __pyx_L1_error)
     }
-    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_arr.diminfo[1].strides));
+    __pyx_t_14 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_arr.diminfo[1].strides));
     __pyx_t_15 = __pyx_v_idx;
     __pyx_t_16 = __pyx_v_i;
     __pyx_t_6 = -1;
@@ -1904,45 +1912,45 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
     } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 29, __pyx_L1_error)
+      __PYX_ERR(0, 31, __pyx_L1_error)
     }
-    *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_10;
+    *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_7;
     __pyx_t_17 = __pyx_v_idx;
-    __pyx_t_18 = __pyx_v_j;
+    __pyx_t_7 = __pyx_v_j;
     __pyx_t_6 = -1;
     if (__pyx_t_17 < 0) {
       __pyx_t_17 += __pyx_pybuffernd_arr.diminfo[0].shape;
       if (unlikely(__pyx_t_17 < 0)) __pyx_t_6 = 0;
     } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-    if (__pyx_t_18 < 0) {
-      __pyx_t_18 += __pyx_pybuffernd_arr.diminfo[1].shape;
-      if (unlikely(__pyx_t_18 < 0)) __pyx_t_6 = 1;
-    } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+    if (__pyx_t_7 < 0) {
+      __pyx_t_7 += __pyx_pybuffernd_arr.diminfo[1].shape;
+      if (unlikely(__pyx_t_7 < 0)) __pyx_t_6 = 1;
+    } else if (unlikely(__pyx_t_7 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 29, __pyx_L1_error)
+      __PYX_ERR(0, 31, __pyx_L1_error)
     }
-    *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_7;
+    *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_7, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_14;
   }
 
-  /* "_mutation.pyx":31
+  /* "_mutation.pyx":33
  *         arr[idx, i], arr[idx, j] = arr[idx, j], arr[idx,i]
  * 
  *     return arr             # <<<<<<<<<<<<<<
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _reverse(
+ * 
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
   __Pyx_INCREF(((PyObject *)__pyx_v_arr));
   __pyx_r = ((PyArrayObject *)__pyx_v_arr);
   goto __pyx_L0;
 
-  /* "_mutation.pyx":18
- * import numpy as np
+  /* "_mutation.pyx":20
+ * ctypedef np.int64_t DTYPE
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _swap(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices):
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_swap2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices):
  */
 
   /* function exit code */
@@ -1954,7 +1962,7 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("_mutation._swap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_swap2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1967,14 +1975,14 @@ static PyArrayObject *__pyx_f_9_mutation__swap(PyArrayObject *__pyx_v_arr, PyArr
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9_mutation_1_swap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9_mutation__swap[] = "2D vector row-rise swap mutation method";
-static PyObject *__pyx_pw_9_mutation_1_swap(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9_mutation_1array_indices_swap2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9_mutation_array_indices_swap2d[] = "2D vector row-rise swap mutation method";
+static PyObject *__pyx_pw_9_mutation_1array_indices_swap2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_arr = 0;
   PyArrayObject *__pyx_v_indices = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_swap (wrapper)", 0);
+  __Pyx_RefNannySetupContext("array_indices_swap2d (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_arr,&__pyx_n_s_indices,0};
     PyObject* values[2] = {0,0};
@@ -1998,11 +2006,11 @@ static PyObject *__pyx_pw_9_mutation_1_swap(PyObject *__pyx_self, PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_indices)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("_swap", 1, 2, 2, 1); __PYX_ERR(0, 18, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("array_indices_swap2d", 1, 2, 2, 1); __PYX_ERR(0, 20, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "_swap") < 0)) __PYX_ERR(0, 18, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "array_indices_swap2d") < 0)) __PYX_ERR(0, 20, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2015,15 +2023,15 @@ static PyObject *__pyx_pw_9_mutation_1_swap(PyObject *__pyx_self, PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_swap", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 18, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("array_indices_swap2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 20, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("_mutation._swap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_swap2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_indices), __pyx_ptype_5numpy_ndarray, 1, "indices", 0))) __PYX_ERR(0, 20, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9_mutation__swap(__pyx_self, __pyx_v_arr, __pyx_v_indices);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_indices), __pyx_ptype_5numpy_ndarray, 1, "indices", 0))) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_r = __pyx_pf_9_mutation_array_indices_swap2d(__pyx_self, __pyx_v_arr, __pyx_v_indices);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2034,7 +2042,7 @@ static PyObject *__pyx_pw_9_mutation_1_swap(PyObject *__pyx_self, PyObject *__py
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9_mutation__swap(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices) {
+static PyObject *__pyx_pf_9_mutation_array_indices_swap2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -2042,7 +2050,7 @@ static PyObject *__pyx_pf_9_mutation__swap(CYTHON_UNUSED PyObject *__pyx_self, P
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("_swap", 0);
+  __Pyx_RefNannySetupContext("array_indices_swap2d", 0);
   __pyx_pybuffer_arr.pybuffer.buf = NULL;
   __pyx_pybuffer_arr.refcount = 0;
   __pyx_pybuffernd_arr.data = NULL;
@@ -2053,16 +2061,16 @@ static PyObject *__pyx_pf_9_mutation__swap(CYTHON_UNUSED PyObject *__pyx_self, P
   __pyx_pybuffernd_indices.rcbuffer = &__pyx_pybuffer_indices;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 20, __pyx_L1_error)
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 20, __pyx_L1_error)
   }
   __pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_indices.diminfo[1].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_indices.diminfo[1].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[1];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_9_mutation__swap(__pyx_v_arr, __pyx_v_indices, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_9_mutation_array_indices_swap2d(__pyx_v_arr, __pyx_v_indices, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2078,7 +2086,7 @@ static PyObject *__pyx_pf_9_mutation__swap(CYTHON_UNUSED PyObject *__pyx_self, P
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("_mutation._swap", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_swap2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2090,20 +2098,20 @@ static PyObject *__pyx_pf_9_mutation__swap(CYTHON_UNUSED PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-/* "_mutation.pyx":33
- *     return arr
+/* "_mutation.pyx":36
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _reverse(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices):
+ * 
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_reverse2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices):
  */
 
-static PyObject *__pyx_pw_9_mutation_3_reverse(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_9_mutation_3array_indices_reverse2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_9_mutation_array_indices_reverse2d(PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, CYTHON_UNUSED int __pyx_skip_dispatch) {
   Py_ssize_t __pyx_v_idx;
   Py_ssize_t __pyx_v_N;
-  __pyx_t_5numpy_int32_t __pyx_v_i;
-  __pyx_t_5numpy_int32_t __pyx_v_j;
+  __pyx_t_9_mutation_DTYPE __pyx_v_i;
+  __pyx_t_9_mutation_DTYPE __pyx_v_j;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -2116,20 +2124,19 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
   Py_ssize_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
   int __pyx_t_6;
-  __pyx_t_5numpy_int32_t __pyx_t_7;
+  __pyx_t_9_mutation_DTYPE __pyx_t_7;
   Py_ssize_t __pyx_t_8;
   Py_ssize_t __pyx_t_9;
-  __pyx_t_5numpy_int32_t __pyx_t_10;
+  __pyx_t_9_mutation_DTYPE __pyx_t_10;
   int __pyx_t_11;
   Py_ssize_t __pyx_t_12;
   Py_ssize_t __pyx_t_13;
-  Py_ssize_t __pyx_t_14;
-  Py_ssize_t __pyx_t_15;
+  __pyx_t_9_mutation_DTYPE __pyx_t_14;
+  __pyx_t_9_mutation_DTYPE __pyx_t_15;
   Py_ssize_t __pyx_t_16;
-  Py_ssize_t __pyx_t_17;
+  __pyx_t_9_mutation_DTYPE __pyx_t_17;
   Py_ssize_t __pyx_t_18;
-  Py_ssize_t __pyx_t_19;
-  __Pyx_RefNannySetupContext("_reverse", 0);
+  __Pyx_RefNannySetupContext("array_indices_reverse2d", 0);
   __pyx_pybuffer_arr.pybuffer.buf = NULL;
   __pyx_pybuffer_arr.refcount = 0;
   __pyx_pybuffernd_arr.data = NULL;
@@ -2140,26 +2147,26 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
   __pyx_pybuffernd_indices.rcbuffer = &__pyx_pybuffer_indices;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 36, __pyx_L1_error)
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 36, __pyx_L1_error)
   }
   __pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_indices.diminfo[1].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_indices.diminfo[1].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[1];
 
-  /* "_mutation.pyx":39
+  /* "_mutation.pyx":42
  * 
  *     cdef:
  *         Py_ssize_t idx, N = arr.shape[0]             # <<<<<<<<<<<<<<
- *         np.int32_t i, j
+ *         DTYPE i, j
  * 
  */
   __pyx_v_N = (__pyx_v_arr->dimensions[0]);
 
-  /* "_mutation.pyx":42
- *         np.int32_t i, j
+  /* "_mutation.pyx":45
+ *         DTYPE i, j
  * 
  *     for idx in range(N):             # <<<<<<<<<<<<<<
  *         i, j = indices[idx, 0], indices[idx, 1]
@@ -2170,7 +2177,7 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_idx = __pyx_t_3;
 
-    /* "_mutation.pyx":43
+    /* "_mutation.pyx":46
  * 
  *     for idx in range(N):
  *         i, j = indices[idx, 0], indices[idx, 1]             # <<<<<<<<<<<<<<
@@ -2190,9 +2197,9 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
     } else if (unlikely(__pyx_t_5 >= __pyx_pybuffernd_indices.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 43, __pyx_L1_error)
+      __PYX_ERR(0, 46, __pyx_L1_error)
     }
-    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_indices.diminfo[1].strides));
+    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_indices.diminfo[1].strides));
     __pyx_t_8 = __pyx_v_idx;
     __pyx_t_9 = 1;
     __pyx_t_6 = -1;
@@ -2206,13 +2213,13 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
     } else if (unlikely(__pyx_t_9 >= __pyx_pybuffernd_indices.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 43, __pyx_L1_error)
+      __PYX_ERR(0, 46, __pyx_L1_error)
     }
-    __pyx_t_10 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_indices.diminfo[1].strides));
+    __pyx_t_10 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_indices.diminfo[1].strides));
     __pyx_v_i = __pyx_t_7;
     __pyx_v_j = __pyx_t_10;
 
-    /* "_mutation.pyx":45
+    /* "_mutation.pyx":48
  *         i, j = indices[idx, 0], indices[idx, 1]
  * 
  *         while i < j + 1:             # <<<<<<<<<<<<<<
@@ -2223,7 +2230,7 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
       __pyx_t_11 = ((__pyx_v_i < (__pyx_v_j + 1)) != 0);
       if (!__pyx_t_11) break;
 
-      /* "_mutation.pyx":46
+      /* "_mutation.pyx":49
  * 
  *         while i < j + 1:
  *             arr[idx,i], arr[idx,j] = arr[idx,j], arr[idx,i]             # <<<<<<<<<<<<<<
@@ -2231,37 +2238,37 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
  *             j -= 1
  */
       __pyx_t_12 = __pyx_v_idx;
-      __pyx_t_13 = __pyx_v_j;
+      __pyx_t_10 = __pyx_v_j;
       __pyx_t_6 = -1;
       if (__pyx_t_12 < 0) {
         __pyx_t_12 += __pyx_pybuffernd_arr.diminfo[0].shape;
         if (unlikely(__pyx_t_12 < 0)) __pyx_t_6 = 0;
       } else if (unlikely(__pyx_t_12 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-      if (__pyx_t_13 < 0) {
-        __pyx_t_13 += __pyx_pybuffernd_arr.diminfo[1].shape;
-        if (unlikely(__pyx_t_13 < 0)) __pyx_t_6 = 1;
-      } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+      if (__pyx_t_10 < 0) {
+        __pyx_t_10 += __pyx_pybuffernd_arr.diminfo[1].shape;
+        if (unlikely(__pyx_t_10 < 0)) __pyx_t_6 = 1;
+      } else if (unlikely(__pyx_t_10 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
       if (unlikely(__pyx_t_6 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_6);
-        __PYX_ERR(0, 46, __pyx_L1_error)
+        __PYX_ERR(0, 49, __pyx_L1_error)
       }
-      __pyx_t_10 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_13, __pyx_pybuffernd_arr.diminfo[1].strides));
-      __pyx_t_14 = __pyx_v_idx;
-      __pyx_t_15 = __pyx_v_i;
+      __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_12, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_10, __pyx_pybuffernd_arr.diminfo[1].strides));
+      __pyx_t_13 = __pyx_v_idx;
+      __pyx_t_14 = __pyx_v_i;
       __pyx_t_6 = -1;
+      if (__pyx_t_13 < 0) {
+        __pyx_t_13 += __pyx_pybuffernd_arr.diminfo[0].shape;
+        if (unlikely(__pyx_t_13 < 0)) __pyx_t_6 = 0;
+      } else if (unlikely(__pyx_t_13 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
       if (__pyx_t_14 < 0) {
-        __pyx_t_14 += __pyx_pybuffernd_arr.diminfo[0].shape;
-        if (unlikely(__pyx_t_14 < 0)) __pyx_t_6 = 0;
-      } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-      if (__pyx_t_15 < 0) {
-        __pyx_t_15 += __pyx_pybuffernd_arr.diminfo[1].shape;
-        if (unlikely(__pyx_t_15 < 0)) __pyx_t_6 = 1;
-      } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+        __pyx_t_14 += __pyx_pybuffernd_arr.diminfo[1].shape;
+        if (unlikely(__pyx_t_14 < 0)) __pyx_t_6 = 1;
+      } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
       if (unlikely(__pyx_t_6 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_6);
-        __PYX_ERR(0, 46, __pyx_L1_error)
+        __PYX_ERR(0, 49, __pyx_L1_error)
       }
-      __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[1].strides));
+      __pyx_t_15 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_13, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_14, __pyx_pybuffernd_arr.diminfo[1].strides));
       __pyx_t_16 = __pyx_v_idx;
       __pyx_t_17 = __pyx_v_i;
       __pyx_t_6 = -1;
@@ -2275,27 +2282,27 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
       } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
       if (unlikely(__pyx_t_6 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_6);
-        __PYX_ERR(0, 46, __pyx_L1_error)
+        __PYX_ERR(0, 49, __pyx_L1_error)
       }
-      *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_10;
+      *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_7;
       __pyx_t_18 = __pyx_v_idx;
-      __pyx_t_19 = __pyx_v_j;
+      __pyx_t_7 = __pyx_v_j;
       __pyx_t_6 = -1;
       if (__pyx_t_18 < 0) {
         __pyx_t_18 += __pyx_pybuffernd_arr.diminfo[0].shape;
         if (unlikely(__pyx_t_18 < 0)) __pyx_t_6 = 0;
       } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-      if (__pyx_t_19 < 0) {
-        __pyx_t_19 += __pyx_pybuffernd_arr.diminfo[1].shape;
-        if (unlikely(__pyx_t_19 < 0)) __pyx_t_6 = 1;
-      } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+      if (__pyx_t_7 < 0) {
+        __pyx_t_7 += __pyx_pybuffernd_arr.diminfo[1].shape;
+        if (unlikely(__pyx_t_7 < 0)) __pyx_t_6 = 1;
+      } else if (unlikely(__pyx_t_7 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
       if (unlikely(__pyx_t_6 != -1)) {
         __Pyx_RaiseBufferIndexError(__pyx_t_6);
-        __PYX_ERR(0, 46, __pyx_L1_error)
+        __PYX_ERR(0, 49, __pyx_L1_error)
       }
-      *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_19, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_7;
+      *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_7, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_15;
 
-      /* "_mutation.pyx":47
+      /* "_mutation.pyx":50
  *         while i < j + 1:
  *             arr[idx,i], arr[idx,j] = arr[idx,j], arr[idx,i]
  *             i += 1             # <<<<<<<<<<<<<<
@@ -2304,7 +2311,7 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
  */
       __pyx_v_i = (__pyx_v_i + 1);
 
-      /* "_mutation.pyx":48
+      /* "_mutation.pyx":51
  *             arr[idx,i], arr[idx,j] = arr[idx,j], arr[idx,i]
  *             i += 1
  *             j -= 1             # <<<<<<<<<<<<<<
@@ -2315,24 +2322,24 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
     }
   }
 
-  /* "_mutation.pyx":50
+  /* "_mutation.pyx":53
  *             j -= 1
  * 
  *     return arr             # <<<<<<<<<<<<<<
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _insert(
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
   __Pyx_INCREF(((PyObject *)__pyx_v_arr));
   __pyx_r = ((PyArrayObject *)__pyx_v_arr);
   goto __pyx_L0;
 
-  /* "_mutation.pyx":33
- *     return arr
+  /* "_mutation.pyx":36
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _reverse(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices):
+ * 
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_reverse2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices):
  */
 
   /* function exit code */
@@ -2344,7 +2351,7 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("_mutation._reverse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_reverse2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2357,14 +2364,14 @@ static PyArrayObject *__pyx_f_9_mutation__reverse(PyArrayObject *__pyx_v_arr, Py
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9_mutation_3_reverse(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9_mutation_2_reverse[] = "2D vector row-rise reversion mutation method";
-static PyObject *__pyx_pw_9_mutation_3_reverse(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9_mutation_3array_indices_reverse2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9_mutation_2array_indices_reverse2d[] = "2D vector row-rise reversion mutation method";
+static PyObject *__pyx_pw_9_mutation_3array_indices_reverse2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_arr = 0;
   PyArrayObject *__pyx_v_indices = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_reverse (wrapper)", 0);
+  __Pyx_RefNannySetupContext("array_indices_reverse2d (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_arr,&__pyx_n_s_indices,0};
     PyObject* values[2] = {0,0};
@@ -2388,11 +2395,11 @@ static PyObject *__pyx_pw_9_mutation_3_reverse(PyObject *__pyx_self, PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_indices)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("_reverse", 1, 2, 2, 1); __PYX_ERR(0, 33, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("array_indices_reverse2d", 1, 2, 2, 1); __PYX_ERR(0, 36, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "_reverse") < 0)) __PYX_ERR(0, 33, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "array_indices_reverse2d") < 0)) __PYX_ERR(0, 36, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2405,15 +2412,15 @@ static PyObject *__pyx_pw_9_mutation_3_reverse(PyObject *__pyx_self, PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_reverse", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 33, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("array_indices_reverse2d", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 36, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("_mutation._reverse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_reverse2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) __PYX_ERR(0, 34, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_indices), __pyx_ptype_5numpy_ndarray, 1, "indices", 0))) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9_mutation_2_reverse(__pyx_self, __pyx_v_arr, __pyx_v_indices);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) __PYX_ERR(0, 37, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_indices), __pyx_ptype_5numpy_ndarray, 1, "indices", 0))) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_r = __pyx_pf_9_mutation_2array_indices_reverse2d(__pyx_self, __pyx_v_arr, __pyx_v_indices);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2424,7 +2431,7 @@ static PyObject *__pyx_pw_9_mutation_3_reverse(PyObject *__pyx_self, PyObject *_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9_mutation_2_reverse(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices) {
+static PyObject *__pyx_pf_9_mutation_2array_indices_reverse2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -2432,7 +2439,7 @@ static PyObject *__pyx_pf_9_mutation_2_reverse(CYTHON_UNUSED PyObject *__pyx_sel
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  __Pyx_RefNannySetupContext("_reverse", 0);
+  __Pyx_RefNannySetupContext("array_indices_reverse2d", 0);
   __pyx_pybuffer_arr.pybuffer.buf = NULL;
   __pyx_pybuffer_arr.refcount = 0;
   __pyx_pybuffernd_arr.data = NULL;
@@ -2443,16 +2450,16 @@ static PyObject *__pyx_pf_9_mutation_2_reverse(CYTHON_UNUSED PyObject *__pyx_sel
   __pyx_pybuffernd_indices.rcbuffer = &__pyx_pybuffer_indices;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 36, __pyx_L1_error)
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 33, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 36, __pyx_L1_error)
   }
   __pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_indices.diminfo[1].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_indices.diminfo[1].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[1];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_9_mutation__reverse(__pyx_v_arr, __pyx_v_indices, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_9_mutation_array_indices_reverse2d(__pyx_v_arr, __pyx_v_indices, 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2468,7 +2475,7 @@ static PyObject *__pyx_pf_9_mutation_2_reverse(CYTHON_UNUSED PyObject *__pyx_sel
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("_mutation._reverse", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_reverse2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2480,24 +2487,24 @@ static PyObject *__pyx_pf_9_mutation_2_reverse(CYTHON_UNUSED PyObject *__pyx_sel
   return __pyx_r;
 }
 
-/* "_mutation.pyx":52
+/* "_mutation.pyx":55
  *     return arr
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _insert(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices,
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices,
  */
 
-static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9_mutation__insert *__pyx_optional_args) {
+static PyObject *__pyx_pw_9_mutation_5array_indices_insert2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, CYTHON_UNUSED int __pyx_skip_dispatch, struct __pyx_opt_args_9_mutation_array_indices_insert2d *__pyx_optional_args) {
   int __pyx_v_step = ((int)1);
   Py_ssize_t __pyx_v_i;
   Py_ssize_t __pyx_v_j;
   Py_ssize_t __pyx_v_N;
-  __pyx_t_5numpy_int32_t __pyx_v_start;
-  __pyx_t_5numpy_int32_t __pyx_v_stop;
-  __pyx_t_5numpy_int32_t __pyx_v_n;
-  __pyx_t_5numpy_int32_t __pyx_v_shift;
+  __pyx_t_9_mutation_DTYPE __pyx_v_start;
+  __pyx_t_9_mutation_DTYPE __pyx_v_stop;
+  __pyx_t_9_mutation_DTYPE __pyx_v_n;
+  __pyx_t_9_mutation_DTYPE __pyx_v_shift;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -2510,23 +2517,22 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
   Py_ssize_t __pyx_t_4;
   Py_ssize_t __pyx_t_5;
   int __pyx_t_6;
-  __pyx_t_5numpy_int32_t __pyx_t_7;
+  __pyx_t_9_mutation_DTYPE __pyx_t_7;
   Py_ssize_t __pyx_t_8;
   Py_ssize_t __pyx_t_9;
-  long __pyx_t_10;
+  __pyx_t_9_mutation_DTYPE __pyx_t_10;
   int __pyx_t_11;
   int __pyx_t_12;
-  __pyx_t_5numpy_int32_t __pyx_t_13;
+  Py_ssize_t __pyx_t_13;
   Py_ssize_t __pyx_t_14;
-  Py_ssize_t __pyx_t_15;
+  __pyx_t_9_mutation_DTYPE __pyx_t_15;
   Py_ssize_t __pyx_t_16;
-  Py_ssize_t __pyx_t_17;
+  __pyx_t_9_mutation_DTYPE __pyx_t_17;
   Py_ssize_t __pyx_t_18;
-  Py_ssize_t __pyx_t_19;
+  __pyx_t_9_mutation_DTYPE __pyx_t_19;
   Py_ssize_t __pyx_t_20;
-  Py_ssize_t __pyx_t_21;
-  Py_ssize_t __pyx_t_22;
-  __Pyx_RefNannySetupContext("_insert", 0);
+  __pyx_t_9_mutation_DTYPE __pyx_t_21;
+  __Pyx_RefNannySetupContext("array_indices_insert2d", 0);
   if (__pyx_optional_args) {
     if (__pyx_optional_args->__pyx_n > 0) {
       __pyx_v_step = __pyx_optional_args->step;
@@ -2542,26 +2548,26 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
   __pyx_pybuffernd_indices.rcbuffer = &__pyx_pybuffer_indices;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 55, __pyx_L1_error)
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 55, __pyx_L1_error)
   }
   __pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_indices.diminfo[1].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_indices.diminfo[1].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[1];
 
-  /* "_mutation.pyx":59
+  /* "_mutation.pyx":63
  * 
  *     cdef:
  *         Py_ssize_t i, j, N = arr.shape[0]             # <<<<<<<<<<<<<<
- *         np.int32_t start, stop, n, shift
+ *         DTYPE start, stop, n, shift
  * 
  */
   __pyx_v_N = (__pyx_v_arr->dimensions[0]);
 
-  /* "_mutation.pyx":62
- *         np.int32_t start, stop, n, shift
+  /* "_mutation.pyx":66
+ *         DTYPE start, stop, n, shift
  * 
  *     for i in range(N):             # <<<<<<<<<<<<<<
  *         start, stop = indices[i, 0], indices[i, 1] + 1
@@ -2572,7 +2578,7 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
 
-    /* "_mutation.pyx":63
+    /* "_mutation.pyx":67
  * 
  *     for i in range(N):
  *         start, stop = indices[i, 0], indices[i, 1] + 1             # <<<<<<<<<<<<<<
@@ -2592,9 +2598,9 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
     } else if (unlikely(__pyx_t_5 >= __pyx_pybuffernd_indices.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 63, __pyx_L1_error)
+      __PYX_ERR(0, 67, __pyx_L1_error)
     }
-    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_indices.diminfo[1].strides));
+    __pyx_t_7 = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_4, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_5, __pyx_pybuffernd_indices.diminfo[1].strides));
     __pyx_t_8 = __pyx_v_i;
     __pyx_t_9 = 1;
     __pyx_t_6 = -1;
@@ -2608,13 +2614,13 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
     } else if (unlikely(__pyx_t_9 >= __pyx_pybuffernd_indices.diminfo[1].shape)) __pyx_t_6 = 1;
     if (unlikely(__pyx_t_6 != -1)) {
       __Pyx_RaiseBufferIndexError(__pyx_t_6);
-      __PYX_ERR(0, 63, __pyx_L1_error)
+      __PYX_ERR(0, 67, __pyx_L1_error)
     }
-    __pyx_t_10 = ((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_indices.diminfo[1].strides)) + 1);
+    __pyx_t_10 = ((*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_indices.rcbuffer->pybuffer.buf, __pyx_t_8, __pyx_pybuffernd_indices.diminfo[0].strides, __pyx_t_9, __pyx_pybuffernd_indices.diminfo[1].strides)) + 1);
     __pyx_v_start = __pyx_t_7;
     __pyx_v_stop = __pyx_t_10;
 
-    /* "_mutation.pyx":64
+    /* "_mutation.pyx":68
  *     for i in range(N):
  *         start, stop = indices[i, 0], indices[i, 1] + 1
  *         n = stop - start             # <<<<<<<<<<<<<<
@@ -2623,7 +2629,7 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
  */
     __pyx_v_n = (__pyx_v_stop - __pyx_v_start);
 
-    /* "_mutation.pyx":65
+    /* "_mutation.pyx":69
  *         start, stop = indices[i, 0], indices[i, 1] + 1
  *         n = stop - start
  *         shift= step % n             # <<<<<<<<<<<<<<
@@ -2632,11 +2638,11 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
  */
     if (unlikely(__pyx_v_n == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-      __PYX_ERR(0, 65, __pyx_L1_error)
+      __PYX_ERR(0, 69, __pyx_L1_error)
     }
-    __pyx_v_shift = __Pyx_mod___pyx_t_5numpy_int32_t(__pyx_v_step, __pyx_v_n);
+    __pyx_v_shift = __Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_v_step, __pyx_v_n);
 
-    /* "_mutation.pyx":67
+    /* "_mutation.pyx":71
  *         shift= step % n
  * 
  *         while n > 0 and shift % n != 0:             # <<<<<<<<<<<<<<
@@ -2652,117 +2658,117 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
       }
       if (unlikely(__pyx_v_n == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-        __PYX_ERR(0, 67, __pyx_L1_error)
+        __PYX_ERR(0, 71, __pyx_L1_error)
       }
-      __pyx_t_12 = ((__Pyx_mod___pyx_t_5numpy_int32_t(__pyx_v_shift, __pyx_v_n) != 0) != 0);
+      __pyx_t_12 = ((__Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_v_shift, __pyx_v_n) != 0) != 0);
       __pyx_t_11 = __pyx_t_12;
       __pyx_L7_bool_binop_done:;
       if (!__pyx_t_11) break;
 
-      /* "_mutation.pyx":68
+      /* "_mutation.pyx":72
  * 
  *         while n > 0 and shift % n != 0:
  *             for j in range(shift):             # <<<<<<<<<<<<<<
  *                 arr[i, start + j] =  arr[i, stop - shift + j]
  *                 arr[i, stop - shift + j] = arr[i, start + j]
  */
-      __pyx_t_7 = __pyx_v_shift;
-      __pyx_t_13 = __pyx_t_7;
-      for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
-        __pyx_v_j = __pyx_t_14;
+      __pyx_t_10 = __pyx_v_shift;
+      __pyx_t_7 = __pyx_t_10;
+      for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_7; __pyx_t_13+=1) {
+        __pyx_v_j = __pyx_t_13;
 
-        /* "_mutation.pyx":69
+        /* "_mutation.pyx":73
  *         while n > 0 and shift % n != 0:
  *             for j in range(shift):
  *                 arr[i, start + j] =  arr[i, stop - shift + j]             # <<<<<<<<<<<<<<
  *                 arr[i, stop - shift + j] = arr[i, start + j]
  * 
  */
-        __pyx_t_15 = __pyx_v_i;
-        __pyx_t_16 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
+        __pyx_t_14 = __pyx_v_i;
+        __pyx_t_15 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
         __pyx_t_6 = -1;
+        if (__pyx_t_14 < 0) {
+          __pyx_t_14 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_14 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_14 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
         if (__pyx_t_15 < 0) {
-          __pyx_t_15 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_15 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_16 < 0) {
-          __pyx_t_16 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_16 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+          __pyx_t_15 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_15 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_15 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
         if (unlikely(__pyx_t_6 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 69, __pyx_L1_error)
+          __PYX_ERR(0, 73, __pyx_L1_error)
         }
-        __pyx_t_17 = __pyx_v_i;
-        __pyx_t_18 = (__pyx_v_start + __pyx_v_j);
+        __pyx_t_16 = __pyx_v_i;
+        __pyx_t_17 = (__pyx_v_start + __pyx_v_j);
         __pyx_t_6 = -1;
+        if (__pyx_t_16 < 0) {
+          __pyx_t_16 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_16 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
         if (__pyx_t_17 < 0) {
-          __pyx_t_17 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_17 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_18 < 0) {
-          __pyx_t_18 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_18 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+          __pyx_t_17 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_17 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
         if (unlikely(__pyx_t_6 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 69, __pyx_L1_error)
+          __PYX_ERR(0, 73, __pyx_L1_error)
         }
-        *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[1].strides));
+        *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[1].strides));
 
-        /* "_mutation.pyx":70
+        /* "_mutation.pyx":74
  *             for j in range(shift):
  *                 arr[i, start + j] =  arr[i, stop - shift + j]
  *                 arr[i, stop - shift + j] = arr[i, start + j]             # <<<<<<<<<<<<<<
  * 
  *             n, start = n - shift, start + shift
  */
-        __pyx_t_19 = __pyx_v_i;
-        __pyx_t_20 = (__pyx_v_start + __pyx_v_j);
+        __pyx_t_18 = __pyx_v_i;
+        __pyx_t_19 = (__pyx_v_start + __pyx_v_j);
         __pyx_t_6 = -1;
+        if (__pyx_t_18 < 0) {
+          __pyx_t_18 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_18 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
         if (__pyx_t_19 < 0) {
-          __pyx_t_19 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_19 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_20 < 0) {
-          __pyx_t_20 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_20 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_20 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+          __pyx_t_19 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_19 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
         if (unlikely(__pyx_t_6 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 70, __pyx_L1_error)
+          __PYX_ERR(0, 74, __pyx_L1_error)
         }
-        __pyx_t_21 = __pyx_v_i;
-        __pyx_t_22 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
+        __pyx_t_20 = __pyx_v_i;
+        __pyx_t_21 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
         __pyx_t_6 = -1;
+        if (__pyx_t_20 < 0) {
+          __pyx_t_20 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_20 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_20 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
         if (__pyx_t_21 < 0) {
-          __pyx_t_21 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_21 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_21 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_22 < 0) {
-          __pyx_t_22 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_22 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_22 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+          __pyx_t_21 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_21 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_21 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
         if (unlikely(__pyx_t_6 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 70, __pyx_L1_error)
+          __PYX_ERR(0, 74, __pyx_L1_error)
         }
-        *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_22, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_int32_t *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_20, __pyx_pybuffernd_arr.diminfo[1].strides));
+        *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_21, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_19, __pyx_pybuffernd_arr.diminfo[1].strides));
       }
 
-      /* "_mutation.pyx":72
+      /* "_mutation.pyx":76
  *                 arr[i, stop - shift + j] = arr[i, start + j]
  * 
  *             n, start = n - shift, start + shift             # <<<<<<<<<<<<<<
  *             shift = shift % n
  * 
  */
-      __pyx_t_7 = (__pyx_v_n - __pyx_v_shift);
-      __pyx_t_13 = (__pyx_v_start + __pyx_v_shift);
-      __pyx_v_n = __pyx_t_7;
-      __pyx_v_start = __pyx_t_13;
+      __pyx_t_10 = (__pyx_v_n - __pyx_v_shift);
+      __pyx_t_7 = (__pyx_v_start + __pyx_v_shift);
+      __pyx_v_n = __pyx_t_10;
+      __pyx_v_start = __pyx_t_7;
 
-      /* "_mutation.pyx":73
+      /* "_mutation.pyx":77
  * 
  *             n, start = n - shift, start + shift
  *             shift = shift % n             # <<<<<<<<<<<<<<
@@ -2771,13 +2777,13 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
  */
       if (unlikely(__pyx_v_n == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-        __PYX_ERR(0, 73, __pyx_L1_error)
+        __PYX_ERR(0, 77, __pyx_L1_error)
       }
-      __pyx_v_shift = __Pyx_mod___pyx_t_5numpy_int32_t(__pyx_v_shift, __pyx_v_n);
+      __pyx_v_shift = __Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_v_shift, __pyx_v_n);
     }
   }
 
-  /* "_mutation.pyx":75
+  /* "_mutation.pyx":79
  *             shift = shift % n
  * 
  *     return arr             # <<<<<<<<<<<<<<
@@ -2787,12 +2793,12 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
   __pyx_r = ((PyArrayObject *)__pyx_v_arr);
   goto __pyx_L0;
 
-  /* "_mutation.pyx":52
+  /* "_mutation.pyx":55
  *     return arr
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _insert(             # <<<<<<<<<<<<<<
- *     np.ndarray[np.int32_t, ndim=2] arr,
- *     np.ndarray[np.int32_t, ndim=2] indices,
+ * cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(             # <<<<<<<<<<<<<<
+ *     np.ndarray[DTYPE, ndim=2] arr,
+ *     np.ndarray[DTYPE, ndim=2] indices,
  */
 
   /* function exit code */
@@ -2804,7 +2810,7 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("_mutation._insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_insert2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2817,15 +2823,15 @@ static PyArrayObject *__pyx_f_9_mutation__insert(PyArrayObject *__pyx_v_arr, PyA
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9_mutation_4_insert[] = "2D vector row-rise insertion mutation method";
-static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9_mutation_5array_indices_insert2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9_mutation_4array_indices_insert2d[] = "2D vector row-rise insertion mutation method using cylic array\n    rotation. See https://www.geeksforgeeks.org/array-rotation/";
+static PyObject *__pyx_pw_9_mutation_5array_indices_insert2d(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_arr = 0;
   PyArrayObject *__pyx_v_indices = 0;
   int __pyx_v_step;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_insert (wrapper)", 0);
+  __Pyx_RefNannySetupContext("array_indices_insert2d (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_arr,&__pyx_n_s_indices,&__pyx_n_s_step,0};
     PyObject* values[3] = {0,0,0};
@@ -2851,7 +2857,7 @@ static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_indices)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("_insert", 0, 2, 3, 1); __PYX_ERR(0, 52, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("array_indices_insert2d", 0, 2, 3, 1); __PYX_ERR(0, 55, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -2861,7 +2867,7 @@ static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "_insert") < 0)) __PYX_ERR(0, 52, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "array_indices_insert2d") < 0)) __PYX_ERR(0, 55, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -2876,22 +2882,22 @@ static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__
     __pyx_v_arr = ((PyArrayObject *)values[0]);
     __pyx_v_indices = ((PyArrayObject *)values[1]);
     if (values[2]) {
-      __pyx_v_step = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_step == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 55, __pyx_L3_error)
+      __pyx_v_step = __Pyx_PyInt_As_int(values[2]); if (unlikely((__pyx_v_step == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 58, __pyx_L3_error)
     } else {
       __pyx_v_step = ((int)1);
     }
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("_insert", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 52, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("array_indices_insert2d", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 55, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("_mutation._insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_insert2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) __PYX_ERR(0, 53, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_indices), __pyx_ptype_5numpy_ndarray, 1, "indices", 0))) __PYX_ERR(0, 54, __pyx_L1_error)
-  __pyx_r = __pyx_pf_9_mutation_4_insert(__pyx_self, __pyx_v_arr, __pyx_v_indices, __pyx_v_step);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_indices), __pyx_ptype_5numpy_ndarray, 1, "indices", 0))) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_r = __pyx_pf_9_mutation_4array_indices_insert2d(__pyx_self, __pyx_v_arr, __pyx_v_indices, __pyx_v_step);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2902,7 +2908,7 @@ static PyObject *__pyx_pw_9_mutation_5_insert(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9_mutation_4_insert(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, int __pyx_v_step) {
+static PyObject *__pyx_pf_9_mutation_4array_indices_insert2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr, PyArrayObject *__pyx_v_indices, int __pyx_v_step) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -2910,8 +2916,8 @@ static PyObject *__pyx_pf_9_mutation_4_insert(CYTHON_UNUSED PyObject *__pyx_self
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
-  struct __pyx_opt_args_9_mutation__insert __pyx_t_2;
-  __Pyx_RefNannySetupContext("_insert", 0);
+  struct __pyx_opt_args_9_mutation_array_indices_insert2d __pyx_t_2;
+  __Pyx_RefNannySetupContext("array_indices_insert2d", 0);
   __pyx_pybuffer_arr.pybuffer.buf = NULL;
   __pyx_pybuffer_arr.refcount = 0;
   __pyx_pybuffernd_arr.data = NULL;
@@ -2922,18 +2928,18 @@ static PyObject *__pyx_pf_9_mutation_4_insert(CYTHON_UNUSED PyObject *__pyx_self
   __pyx_pybuffernd_indices.rcbuffer = &__pyx_pybuffer_indices;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_arr.rcbuffer->pybuffer, (PyObject*)__pyx_v_arr, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 55, __pyx_L1_error)
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer->pybuffer.shape[1];
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_indices.rcbuffer->pybuffer, (PyObject*)__pyx_v_indices, &__Pyx_TypeInfo_nn___pyx_t_9_mutation_DTYPE, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 55, __pyx_L1_error)
   }
   __pyx_pybuffernd_indices.diminfo[0].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_indices.diminfo[0].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_indices.diminfo[1].strides = __pyx_pybuffernd_indices.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_indices.diminfo[1].shape = __pyx_pybuffernd_indices.rcbuffer->pybuffer.shape[1];
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2.__pyx_n = 1;
   __pyx_t_2.step = __pyx_v_step;
-  __pyx_t_1 = ((PyObject *)__pyx_f_9_mutation__insert(__pyx_v_arr, __pyx_v_indices, 0, &__pyx_t_2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_9_mutation_array_indices_insert2d(__pyx_v_arr, __pyx_v_indices, 0, &__pyx_t_2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 55, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2949,7 +2955,7 @@ static PyObject *__pyx_pf_9_mutation_4_insert(CYTHON_UNUSED PyObject *__pyx_self
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
     __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("_mutation._insert", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("_mutation.array_indices_insert2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -5380,9 +5386,9 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
 }
 
 static PyMethodDef __pyx_methods[] = {
-  {"_swap", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9_mutation_1_swap, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9_mutation__swap},
-  {"_reverse", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9_mutation_3_reverse, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9_mutation_2_reverse},
-  {"_insert", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9_mutation_5_insert, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9_mutation_4_insert},
+  {"array_indices_swap2d", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9_mutation_1array_indices_swap2d, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9_mutation_array_indices_swap2d},
+  {"array_indices_reverse2d", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9_mutation_3array_indices_reverse2d, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9_mutation_2array_indices_reverse2d},
+  {"array_indices_insert2d", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9_mutation_5array_indices_insert2d, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9_mutation_4array_indices_insert2d},
   {0, 0, 0, 0}
 };
 
@@ -5453,7 +5459,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 29, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 272, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(1, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(1, 1038, __pyx_L1_error)
@@ -5851,7 +5857,7 @@ if (!__Pyx_RefNanny) {
  * cimport numpy as np
  * import numpy as np             # <<<<<<<<<<<<<<
  * 
- * cpdef np.ndarray[np.int32_t, ndim=2] _swap(
+ * ctypedef np.int64_t DTYPE
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -6701,8 +6707,8 @@ bad:
 }
 
 /* None */
-  static CYTHON_INLINE __pyx_t_5numpy_int32_t __Pyx_mod___pyx_t_5numpy_int32_t(__pyx_t_5numpy_int32_t a, __pyx_t_5numpy_int32_t b) {
-    __pyx_t_5numpy_int32_t r = a % b;
+  static CYTHON_INLINE __pyx_t_9_mutation_DTYPE __Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_t_9_mutation_DTYPE a, __pyx_t_9_mutation_DTYPE b) {
+    __pyx_t_9_mutation_DTYPE r = a % b;
     r += ((r != 0) & ((r ^ b) < 0)) * b;
     return r;
 }
@@ -7702,24 +7708,24 @@ static void __Pyx_ReleaseBuffer(Py_buffer *view) {
     }
 
 /* CIntToPy */
-  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int32(npy_int32 value) {
-    const npy_int32 neg_one = (npy_int32) ((npy_int32) 0 - (npy_int32) 1), const_zero = (npy_int32) 0;
+  static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int64(npy_int64 value) {
+    const npy_int64 neg_one = (npy_int64) ((npy_int64) 0 - (npy_int64) 1), const_zero = (npy_int64) 0;
     const int is_unsigned = neg_one > const_zero;
     if (is_unsigned) {
-        if (sizeof(npy_int32) < sizeof(long)) {
+        if (sizeof(npy_int64) < sizeof(long)) {
             return PyInt_FromLong((long) value);
-        } else if (sizeof(npy_int32) <= sizeof(unsigned long)) {
+        } else if (sizeof(npy_int64) <= sizeof(unsigned long)) {
             return PyLong_FromUnsignedLong((unsigned long) value);
 #ifdef HAVE_LONG_LONG
-        } else if (sizeof(npy_int32) <= sizeof(unsigned PY_LONG_LONG)) {
+        } else if (sizeof(npy_int64) <= sizeof(unsigned PY_LONG_LONG)) {
             return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
 #endif
         }
     } else {
-        if (sizeof(npy_int32) <= sizeof(long)) {
+        if (sizeof(npy_int64) <= sizeof(long)) {
             return PyInt_FromLong((long) value);
 #ifdef HAVE_LONG_LONG
-        } else if (sizeof(npy_int32) <= sizeof(PY_LONG_LONG)) {
+        } else if (sizeof(npy_int64) <= sizeof(PY_LONG_LONG)) {
             return PyLong_FromLongLong((PY_LONG_LONG) value);
 #endif
         }
@@ -7727,7 +7733,7 @@ static void __Pyx_ReleaseBuffer(Py_buffer *view) {
     {
         int one = 1; int little = (int)*(unsigned char *)&one;
         unsigned char *bytes = (unsigned char *)&value;
-        return _PyLong_FromByteArray(bytes, sizeof(npy_int32),
+        return _PyLong_FromByteArray(bytes, sizeof(npy_int64),
                                      little, !is_unsigned);
     }
 }
