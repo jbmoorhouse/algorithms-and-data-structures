@@ -12,14 +12,15 @@ optimisation applications.
 # License: BSD 3 clause
 
 from cython cimport boundscheck, wraparound
+from cython.parallel cimport prange
+from numpy cimport ndarray as ar
 cimport numpy as np
-import numpy as np
 
 ctypedef np.int64_t DTYPE
 
-cpdef np.ndarray[DTYPE, ndim=2] array_indices_swap2d(
-    np.ndarray[DTYPE, ndim=2] arr, 
-    np.ndarray[DTYPE, ndim=2] indices):
+cpdef ar[DTYPE, ndim=2] array_indices_swap2d(
+    ar[DTYPE, ndim=2] arr, 
+    ar[DTYPE, ndim=2] indices):
     """2D vector row-rise swap mutation method"""
     
     cdef:
@@ -33,9 +34,9 @@ cpdef np.ndarray[DTYPE, ndim=2] array_indices_swap2d(
     return arr
     
 
-cpdef np.ndarray[DTYPE, ndim=2] array_indices_reverse2d(
-    np.ndarray[DTYPE, ndim=2] arr, 
-    np.ndarray[DTYPE, ndim=2] indices):
+cpdef ar[DTYPE, ndim=2] array_indices_reverse2d(
+    ar[DTYPE, ndim=2] arr, 
+    ar[DTYPE, ndim=2] indices):
     """2D vector row-rise reversion mutation method"""
 
     cdef:
@@ -52,9 +53,9 @@ cpdef np.ndarray[DTYPE, ndim=2] array_indices_reverse2d(
     
     return arr
 
-cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(
-    np.ndarray[DTYPE, ndim=2] arr, 
-    np.ndarray[DTYPE, ndim=2] indices,
+cpdef ar[DTYPE, ndim=2] array_indices_insert2d(
+    ar[DTYPE, ndim=2] arr, 
+    ar[DTYPE, ndim=2] indices,
     int step = 1):
     """2D vector row-rise insertion mutation method using cylic array
     rotation. See https://www.geeksforgeeks.org/array-rotation/"""
@@ -72,9 +73,37 @@ cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(
             for j in range(shift):
                 temp = arr[i, start + j]
                 arr[i, start + j] = arr[i, stop - shift + j]
-                arr[i, stop - shift + j] =  temp
+                arr[i, stop - shift + j] = temp
                 
             n, start = n - shift, start + shift
             shift = shift % n
+            
+    return arr
+
+cpdef ar[DTYPE, ndim=2] array_indices_insert2d(
+    ar[DTYPE, ndim=2] arr, 
+    ar[DTYPE, ndim=2] indices,
+    DTYPE step = 1):
+    """2D vector row-rise insertion mutation method using cylic array
+    rotation. See https://www.geeksforgeeks.org/array-rotation/"""
+    
+    cdef:
+        DTYPE i, j, N = arr.shape[0]
+        DTYPE start, stop, n, shift, temp
+        
+    with nogil:        
+        for i in prange(N):
+            start, stop = indices[i, 0], indices[i, 1] + 1
+            n = stop - start
+            shift = step % n
+            
+            while n > 0 and shift % n != 0:
+                for j in range(shift):
+                    temp = arr[i, start + j]
+                    arr[i, start + j] = arr[i, stop - shift + j]
+                    arr[i, stop - shift + j] = temp
+                    
+                n, start = n - shift, start + shift
+                shift = shift % n
             
     return arr
