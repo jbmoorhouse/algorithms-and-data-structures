@@ -1612,6 +1612,9 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_enum__NPY_TYPES(enum NPY_TYPES v
 /* CIntFromPy.proto */
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
+/* CIntFromPy.proto */
+static CYTHON_INLINE npy_int64 __Pyx_PyInt_As_npy_int64(PyObject *);
+
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 
@@ -2505,6 +2508,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
   __pyx_t_9_mutation_DTYPE __pyx_v_stop;
   __pyx_t_9_mutation_DTYPE __pyx_v_n;
   __pyx_t_9_mutation_DTYPE __pyx_v_shift;
+  PyObject *__pyx_v_temp = NULL;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_indices;
@@ -2526,12 +2530,14 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
   Py_ssize_t __pyx_t_13;
   Py_ssize_t __pyx_t_14;
   __pyx_t_9_mutation_DTYPE __pyx_t_15;
-  Py_ssize_t __pyx_t_16;
-  __pyx_t_9_mutation_DTYPE __pyx_t_17;
-  Py_ssize_t __pyx_t_18;
-  __pyx_t_9_mutation_DTYPE __pyx_t_19;
-  Py_ssize_t __pyx_t_20;
+  PyObject *__pyx_t_16 = NULL;
+  Py_ssize_t __pyx_t_17;
+  __pyx_t_9_mutation_DTYPE __pyx_t_18;
+  Py_ssize_t __pyx_t_19;
+  __pyx_t_9_mutation_DTYPE __pyx_t_20;
   __pyx_t_9_mutation_DTYPE __pyx_t_21;
+  Py_ssize_t __pyx_t_22;
+  __pyx_t_9_mutation_DTYPE __pyx_t_23;
   __Pyx_RefNannySetupContext("array_indices_insert2d", 0);
   if (__pyx_optional_args) {
     if (__pyx_optional_args->__pyx_n > 0) {
@@ -2583,7 +2589,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
  *     for i in range(N):
  *         start, stop = indices[i, 0], indices[i, 1] + 1             # <<<<<<<<<<<<<<
  *         n = stop - start
- *         shift= step % n
+ *         shift = step % n
  */
     __pyx_t_4 = __pyx_v_i;
     __pyx_t_5 = 0;
@@ -2624,7 +2630,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
  *     for i in range(N):
  *         start, stop = indices[i, 0], indices[i, 1] + 1
  *         n = stop - start             # <<<<<<<<<<<<<<
- *         shift= step % n
+ *         shift = step % n
  * 
  */
     __pyx_v_n = (__pyx_v_stop - __pyx_v_start);
@@ -2632,7 +2638,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
     /* "_mutation.pyx":69
  *         start, stop = indices[i, 0], indices[i, 1] + 1
  *         n = stop - start
- *         shift= step % n             # <<<<<<<<<<<<<<
+ *         shift = step % n             # <<<<<<<<<<<<<<
  * 
  *         while n > 0 and shift % n != 0:
  */
@@ -2643,11 +2649,11 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
     __pyx_v_shift = __Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_v_step, __pyx_v_n);
 
     /* "_mutation.pyx":71
- *         shift= step % n
+ *         shift = step % n
  * 
  *         while n > 0 and shift % n != 0:             # <<<<<<<<<<<<<<
  *             for j in range(shift):
- *                 arr[i, start + j] =  arr[i, stop - shift + j]
+ *                 temp = arr[i, start + j]
  */
     while (1) {
       __pyx_t_12 = ((__pyx_v_n > 0) != 0);
@@ -2669,8 +2675,8 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
  * 
  *         while n > 0 and shift % n != 0:
  *             for j in range(shift):             # <<<<<<<<<<<<<<
- *                 arr[i, start + j] =  arr[i, stop - shift + j]
- *                 arr[i, stop - shift + j] = arr[i, start + j]
+ *                 temp = arr[i, start + j]
+ *                 arr[i, start + j] = arr[i, stop - shift + j]
  */
       __pyx_t_10 = __pyx_v_shift;
       __pyx_t_7 = __pyx_t_10;
@@ -2680,12 +2686,12 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
         /* "_mutation.pyx":73
  *         while n > 0 and shift % n != 0:
  *             for j in range(shift):
- *                 arr[i, start + j] =  arr[i, stop - shift + j]             # <<<<<<<<<<<<<<
- *                 arr[i, stop - shift + j] = arr[i, start + j]
- * 
+ *                 temp = arr[i, start + j]             # <<<<<<<<<<<<<<
+ *                 arr[i, start + j] = arr[i, stop - shift + j]
+ *                 arr[i, stop - shift + j] =  temp
  */
         __pyx_t_14 = __pyx_v_i;
-        __pyx_t_15 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
+        __pyx_t_15 = (__pyx_v_start + __pyx_v_j);
         __pyx_t_6 = -1;
         if (__pyx_t_14 < 0) {
           __pyx_t_14 += __pyx_pybuffernd_arr.diminfo[0].shape;
@@ -2699,65 +2705,78 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
           __Pyx_RaiseBufferIndexError(__pyx_t_6);
           __PYX_ERR(0, 73, __pyx_L1_error)
         }
-        __pyx_t_16 = __pyx_v_i;
-        __pyx_t_17 = (__pyx_v_start + __pyx_v_j);
-        __pyx_t_6 = -1;
-        if (__pyx_t_16 < 0) {
-          __pyx_t_16 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_16 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_16 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_17 < 0) {
-          __pyx_t_17 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_17 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
-        if (unlikely(__pyx_t_6 != -1)) {
-          __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 73, __pyx_L1_error)
-        }
-        *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_16, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[1].strides));
+        __pyx_t_16 = __Pyx_PyInt_From_npy_int64((*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_14, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_15, __pyx_pybuffernd_arr.diminfo[1].strides))); if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 73, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_16);
+        __Pyx_XDECREF_SET(__pyx_v_temp, __pyx_t_16);
+        __pyx_t_16 = 0;
 
         /* "_mutation.pyx":74
  *             for j in range(shift):
- *                 arr[i, start + j] =  arr[i, stop - shift + j]
- *                 arr[i, stop - shift + j] = arr[i, start + j]             # <<<<<<<<<<<<<<
+ *                 temp = arr[i, start + j]
+ *                 arr[i, start + j] = arr[i, stop - shift + j]             # <<<<<<<<<<<<<<
+ *                 arr[i, stop - shift + j] =  temp
+ * 
+ */
+        __pyx_t_17 = __pyx_v_i;
+        __pyx_t_18 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
+        __pyx_t_6 = -1;
+        if (__pyx_t_17 < 0) {
+          __pyx_t_17 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_17 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_17 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
+        if (__pyx_t_18 < 0) {
+          __pyx_t_18 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_18 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+        if (unlikely(__pyx_t_6 != -1)) {
+          __Pyx_RaiseBufferIndexError(__pyx_t_6);
+          __PYX_ERR(0, 74, __pyx_L1_error)
+        }
+        __pyx_t_19 = __pyx_v_i;
+        __pyx_t_20 = (__pyx_v_start + __pyx_v_j);
+        __pyx_t_6 = -1;
+        if (__pyx_t_19 < 0) {
+          __pyx_t_19 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_19 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
+        if (__pyx_t_20 < 0) {
+          __pyx_t_20 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_20 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_20 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+        if (unlikely(__pyx_t_6 != -1)) {
+          __Pyx_RaiseBufferIndexError(__pyx_t_6);
+          __PYX_ERR(0, 74, __pyx_L1_error)
+        }
+        *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_20, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_17, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[1].strides));
+
+        /* "_mutation.pyx":75
+ *                 temp = arr[i, start + j]
+ *                 arr[i, start + j] = arr[i, stop - shift + j]
+ *                 arr[i, stop - shift + j] =  temp             # <<<<<<<<<<<<<<
  * 
  *             n, start = n - shift, start + shift
  */
-        __pyx_t_18 = __pyx_v_i;
-        __pyx_t_19 = (__pyx_v_start + __pyx_v_j);
+        __pyx_t_21 = __Pyx_PyInt_As_npy_int64(__pyx_v_temp); if (unlikely((__pyx_t_21 == ((npy_int64)-1)) && PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L1_error)
+        __pyx_t_22 = __pyx_v_i;
+        __pyx_t_23 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
         __pyx_t_6 = -1;
-        if (__pyx_t_18 < 0) {
-          __pyx_t_18 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_18 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_18 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_19 < 0) {
-          __pyx_t_19 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_19 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_19 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
+        if (__pyx_t_22 < 0) {
+          __pyx_t_22 += __pyx_pybuffernd_arr.diminfo[0].shape;
+          if (unlikely(__pyx_t_22 < 0)) __pyx_t_6 = 0;
+        } else if (unlikely(__pyx_t_22 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
+        if (__pyx_t_23 < 0) {
+          __pyx_t_23 += __pyx_pybuffernd_arr.diminfo[1].shape;
+          if (unlikely(__pyx_t_23 < 0)) __pyx_t_6 = 1;
+        } else if (unlikely(__pyx_t_23 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
         if (unlikely(__pyx_t_6 != -1)) {
           __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 74, __pyx_L1_error)
+          __PYX_ERR(0, 75, __pyx_L1_error)
         }
-        __pyx_t_20 = __pyx_v_i;
-        __pyx_t_21 = ((__pyx_v_stop - __pyx_v_shift) + __pyx_v_j);
-        __pyx_t_6 = -1;
-        if (__pyx_t_20 < 0) {
-          __pyx_t_20 += __pyx_pybuffernd_arr.diminfo[0].shape;
-          if (unlikely(__pyx_t_20 < 0)) __pyx_t_6 = 0;
-        } else if (unlikely(__pyx_t_20 >= __pyx_pybuffernd_arr.diminfo[0].shape)) __pyx_t_6 = 0;
-        if (__pyx_t_21 < 0) {
-          __pyx_t_21 += __pyx_pybuffernd_arr.diminfo[1].shape;
-          if (unlikely(__pyx_t_21 < 0)) __pyx_t_6 = 1;
-        } else if (unlikely(__pyx_t_21 >= __pyx_pybuffernd_arr.diminfo[1].shape)) __pyx_t_6 = 1;
-        if (unlikely(__pyx_t_6 != -1)) {
-          __Pyx_RaiseBufferIndexError(__pyx_t_6);
-          __PYX_ERR(0, 74, __pyx_L1_error)
-        }
-        *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_21, __pyx_pybuffernd_arr.diminfo[1].strides) = (*__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_18, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_19, __pyx_pybuffernd_arr.diminfo[1].strides));
+        *__Pyx_BufPtrStrided2d(__pyx_t_9_mutation_DTYPE *, __pyx_pybuffernd_arr.rcbuffer->pybuffer.buf, __pyx_t_22, __pyx_pybuffernd_arr.diminfo[0].strides, __pyx_t_23, __pyx_pybuffernd_arr.diminfo[1].strides) = __pyx_t_21;
       }
 
-      /* "_mutation.pyx":76
- *                 arr[i, stop - shift + j] = arr[i, start + j]
+      /* "_mutation.pyx":77
+ *                 arr[i, stop - shift + j] =  temp
  * 
  *             n, start = n - shift, start + shift             # <<<<<<<<<<<<<<
  *             shift = shift % n
@@ -2768,7 +2787,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
       __pyx_v_n = __pyx_t_10;
       __pyx_v_start = __pyx_t_7;
 
-      /* "_mutation.pyx":77
+      /* "_mutation.pyx":78
  * 
  *             n, start = n - shift, start + shift
  *             shift = shift % n             # <<<<<<<<<<<<<<
@@ -2777,13 +2796,13 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
  */
       if (unlikely(__pyx_v_n == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-        __PYX_ERR(0, 77, __pyx_L1_error)
+        __PYX_ERR(0, 78, __pyx_L1_error)
       }
       __pyx_v_shift = __Pyx_mod___pyx_t_9_mutation_DTYPE(__pyx_v_shift, __pyx_v_n);
     }
   }
 
-  /* "_mutation.pyx":79
+  /* "_mutation.pyx":80
  *             shift = shift % n
  * 
  *     return arr             # <<<<<<<<<<<<<<
@@ -2803,6 +2822,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
 
   /* function exit code */
   __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_16);
   { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
     __Pyx_PyThreadState_declare
     __Pyx_PyThreadState_assign
@@ -2817,6 +2837,7 @@ static PyArrayObject *__pyx_f_9_mutation_array_indices_insert2d(PyArrayObject *_
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_arr.rcbuffer->pybuffer);
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_indices.rcbuffer->pybuffer);
   __pyx_L2:;
+  __Pyx_XDECREF(__pyx_v_temp);
   __Pyx_XGIVEREF((PyObject *)__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -8295,6 +8316,195 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to int");
     return (int) -1;
+}
+
+/* CIntFromPy */
+  static CYTHON_INLINE npy_int64 __Pyx_PyInt_As_npy_int64(PyObject *x) {
+    const npy_int64 neg_one = (npy_int64) ((npy_int64) 0 - (npy_int64) 1), const_zero = (npy_int64) 0;
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(npy_int64) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(npy_int64, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (npy_int64) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (npy_int64) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(npy_int64, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(npy_int64) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) >= 2 * PyLong_SHIFT) {
+                            return (npy_int64) (((((npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(npy_int64) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) >= 3 * PyLong_SHIFT) {
+                            return (npy_int64) (((((((npy_int64)digits[2]) << PyLong_SHIFT) | (npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(npy_int64) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) >= 4 * PyLong_SHIFT) {
+                            return (npy_int64) (((((((((npy_int64)digits[3]) << PyLong_SHIFT) | (npy_int64)digits[2]) << PyLong_SHIFT) | (npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (npy_int64) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(npy_int64) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int64, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(npy_int64) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int64, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (npy_int64) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(npy_int64, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(npy_int64,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(npy_int64) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) - 1 > 2 * PyLong_SHIFT) {
+                            return (npy_int64) (((npy_int64)-1)*(((((npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(npy_int64) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) - 1 > 2 * PyLong_SHIFT) {
+                            return (npy_int64) ((((((npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(npy_int64) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) - 1 > 3 * PyLong_SHIFT) {
+                            return (npy_int64) (((npy_int64)-1)*(((((((npy_int64)digits[2]) << PyLong_SHIFT) | (npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(npy_int64) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) - 1 > 3 * PyLong_SHIFT) {
+                            return (npy_int64) ((((((((npy_int64)digits[2]) << PyLong_SHIFT) | (npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(npy_int64) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) - 1 > 4 * PyLong_SHIFT) {
+                            return (npy_int64) (((npy_int64)-1)*(((((((((npy_int64)digits[3]) << PyLong_SHIFT) | (npy_int64)digits[2]) << PyLong_SHIFT) | (npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(npy_int64) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(npy_int64, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(npy_int64) - 1 > 4 * PyLong_SHIFT) {
+                            return (npy_int64) ((((((((((npy_int64)digits[3]) << PyLong_SHIFT) | (npy_int64)digits[2]) << PyLong_SHIFT) | (npy_int64)digits[1]) << PyLong_SHIFT) | (npy_int64)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(npy_int64) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int64, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(npy_int64) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(npy_int64, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            npy_int64 val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (npy_int64) -1;
+        }
+    } else {
+        npy_int64 val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (npy_int64) -1;
+        val = __Pyx_PyInt_As_npy_int64(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to npy_int64");
+    return (npy_int64) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to npy_int64");
+    return (npy_int64) -1;
 }
 
 /* CIntToPy */

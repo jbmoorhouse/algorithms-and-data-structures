@@ -66,13 +66,14 @@ cpdef np.ndarray[DTYPE, ndim=2] array_indices_insert2d(
     for i in range(N):
         start, stop = indices[i, 0], indices[i, 1] + 1
         n = stop - start
-        shift= step % n
+        shift = step % n
         
         while n > 0 and shift % n != 0:
             for j in range(shift):
-                arr[i, start + j] =  arr[i, stop - shift + j] 
-                arr[i, stop - shift + j] = arr[i, start + j]
-
+                temp = arr[i, start + j]
+                arr[i, start + j] = arr[i, stop - shift + j]
+                arr[i, stop - shift + j] =  temp
+                
             n, start = n - shift, start + shift
             shift = shift % n
             
